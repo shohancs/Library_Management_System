@@ -1,5 +1,5 @@
 <?php  
-	$db = mysqli_connect("localhost", "root", "", "threes");
+	$db = mysqli_connect("localhost", "root", "", "online_library");
 
 	if ($db) {
 		// echo "Database Connection Successfully";
