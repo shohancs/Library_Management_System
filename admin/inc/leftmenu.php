@@ -186,62 +186,6 @@
           </li>
           <!-- Order Management  Nav Menu End -->
 
-
-
-          <!-- Manage Category Nav Menu Start -->
-          <li class="nav-header">Home Rent Management</li>
-
-          <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <p class="pl-1">
-                 Manage Rent Category
-                <i class="fas fa-angle-left right"></i>
-                <!-- <span class="badge badge-info right">6</span> -->
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="rentcategory.php?do=Manage" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage All Category</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="rentcategory.php?do=Add" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Category</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <p class="pl-1">
-                 Home Rent
-                <i class="fas fa-angle-left right"></i>
-                <!-- <span class="badge badge-info right">6</span> -->
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="home_rent.php?do=Manage" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage All Rent</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="home_rent.php?do=Add" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Rent</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <!-- Manage Category  Nav Menu End -->
-
           <!-- Blog Page Management Nav Menu Start -->
           <li class="nav-header">Bloging Management</li>
 
@@ -266,73 +210,6 @@
                 <a href="blog.php?do=Add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add New Blog</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <!-- Blog Page Management  Nav Menu End -->
-
-          <!-- Plumbing Page Management Nav Menu Start -->
-          <li class="nav-header">Plumbing Management</li>
-
-          <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="fa-brands fa-pied-piper-alt"></i>
-              <!-- <i class="nav-icon fas fa-users"></i> -->
-              <p>
-                Manage Plumbing 
-                <i class="fas fa-angle-left right"></i>
-                <!-- <span class="badge badge-info right">6</span> -->
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="request_plumbing.php?do=Manage" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Plumbing Request</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="plumbing.php?do=Manage" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage All Plumbing</p>
-                </a>
-              </li>
-              <li class="nav-item pb-5">
-                <a href="plumbing.php?do=Add" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Plumbing</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <!-- Plumbing Page Management  Nav Menu End -->
-
-
-          <!-- Blog Page Management Nav Menu Start -->
-          <li class="nav-header">Laundry Management</li>
-
-          <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="fa-brands fa-pied-piper-alt"></i>
-              <!-- <i class="nav-icon fas fa-users"></i> -->
-              <p>
-                Manage Laundry 
-                <i class="fas fa-angle-left right"></i>
-                <!-- <span class="badge badge-info right">6</span> -->
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="laund_cat.php?do=Manage" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage All Laundry</p>
-                </a>
-              </li>
-              <li class="nav-item pb-5">
-                <a href="laund_cat.php?do=Add" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Laundry</p>
                 </a>
               </li>
             </ul>

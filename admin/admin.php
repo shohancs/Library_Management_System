@@ -45,123 +45,123 @@
 					                
 					              	<!-- Table Start -->
 					              	<table id="dataSearch" class="table table-dark table-striped table-hover table-bordered">
-									  <thead>
-									    <tr>
-									      <th scope="col">#Sl.</th>
-									      <th scope="col">Picture</th>
-									      <th scope="col">Full Name</th>
-									      <th scope="col">Email</th>
-									      <th scope="col">Phone No.</th>
-									      <th scope="col">User Role</th>
-									      <th scope="col">Status</th>								      
-									      <th scope="col">Action</th>
-									    </tr>
-									  </thead>
+													  <thead>
+													    <tr>
+													      <th scope="col">#Sl.</th>
+													      <th scope="col">Picture</th>
+													      <th scope="col">Full Name</th>
+													      <th scope="col">Email</th>
+													      <th scope="col">Phone No.</th>
+													      <th scope="col">User Role</th>
+													      <th scope="col">Status</th>								      
+													      <th scope="col">Action</th>
+													    </tr>
+													  </thead>
 
-									  <tbody>
-									  	<?php  
-									  		$sql = "SELECT * FROM users WHERE role = 1 ORDER BY fullname ASC";
-									  		$allUserData = mysqli_query($db, $sql);
-									  		$i = 0;
+													  <tbody>
+													  	<?php  
+													  		$sql = "SELECT * FROM users WHERE role = 1 ORDER BY fullname ASC";
+													  		$allUserData = mysqli_query($db, $sql);
+													  		$i = 0;
 
-									  		while( $row = mysqli_fetch_assoc($allUserData) ) {
-									  			$user_id  		= $row['user_id'];
-									  			$fullname  		= $row['fullname'];
-									  			$email  			= $row['email'];
-									  			$password  		= $row['password'];
-									  			$phone  			= $row['phone'];
-									  			$address  		= $row['address'];
-									  			$image  			= $row['image'];
-									  			$role  				= $row['role'];
-									  			$status  			= $row['status'];
-									  			$join_date  	= $row['join_date'];
-									  			$i++;
-									  			?>
-									  			<tr>
-											      <th scope="row"><?php echo $i; ?></th>
-											      	<td>
-												      	<?php
-												      		if (!empty($image)) { ?>
-												      			<img src="dist/img/users/<?php echo $image; ?>" alt="" width="35">
-												      		<?php }
-												      		else { ?>
-												      			<img src="dist/img/image.jpg" alt="" width="35">
-												      		<?php }
-												      	?>											      		
-											      	</td>
-											      <td><?php echo $fullname; ?></td>
-											      <td><?php echo $email; ?></td>
-											      <td><?php echo $phone; ?></td>
-											      <td>
-											      	<?php
-											      		if( $role == 1 ) { ?>
-											      			<span class="badge badge-primary">Admin</span>
-											      		<?php }
-											      		else if( $role == 2 ) { ?>
-											      			<span class="badge badge-warning">User</span>
-											      		<?php }
-											      	?>	
-											      	
-											      </td>
-											      <td>
-											      	<?php
-											      		if( $status == 1 ) { ?>
-											      			<span class="badge badge-success">Active</span>
-											      		<?php }
-											      		else if ( $status == 0 ) { ?>
-											      			<span class="badge badge-danger">InActive</span>
-											      		<?php }
-											      	?>	
-											      </td>
-											      <td>
-	<div class="action-btn">
-	    <ul>
-	      <li>
-	        <a href="admin.php?it=Edit&uid=<?php echo $user_id; ?>"><i class="fa-regular fa-pen-to-square"></i></a>
-	      </li>
-	      <li>
-	        <a href="" data-toggle="modal" data-target="#delUser<?php echo $user_id; ?>"><i class="fa-solid fa-trash-can"></i></a>
-	      </li>
-	    </ul>
-	</div>
-	</td>
+													  		while( $row = mysqli_fetch_assoc($allUserData) ) {
+													  			$user_id  		= $row['user_id'];
+													  			$fullname  		= $row['fullname'];
+													  			$email  			= $row['email'];
+													  			$password  		= $row['password'];
+													  			$phone  			= $row['phone'];
+													  			$address  		= $row['address'];
+													  			$image  			= $row['image'];
+													  			$role  				= $row['role'];
+													  			$status  			= $row['status'];
+													  			$join_date  	= $row['join_date'];
+													  			$i++;
+													  			?>
+													  			<tr>
+															      <th scope="row"><?php echo $i; ?></th>
+															      	<td>
+																      	<?php
+																      		if (!empty($image)) { ?>
+																      			<img src="dist/img/users/<?php echo $image; ?>" alt="" width="35">
+																      		<?php }
+																      		else { ?>
+																      			<img src="dist/img/image.jpg" alt="" width="35">
+																      		<?php }
+																      	?>											      		
+															      	</td>
+															      <td><?php echo $fullname; ?></td>
+															      <td><?php echo $email; ?></td>
+															      <td><?php echo $phone; ?></td>
+															      <td>
+															      	<?php
+															      		if( $role == 1 ) { ?>
+															      			<span class="badge badge-primary">Admin</span>
+															      		<?php }
+															      		else if( $role == 2 ) { ?>
+															      			<span class="badge badge-warning">User</span>
+															      		<?php }
+															      	?>	
+															      	
+															      </td>
+															      <td>
+															      	<?php
+															      		if( $status == 1 ) { ?>
+															      			<span class="badge badge-success">Active</span>
+															      		<?php }
+															      		else if ( $status == 0 ) { ?>
+															      			<span class="badge badge-danger">InActive</span>
+															      		<?php }
+															      	?>	
+															      </td>
+															      <td>
+																			<div class="action-btn">
+																			    <ul>
+																			      <li>
+																			        <a href="admin.php?it=Edit&uid=<?php echo $user_id; ?>"><i class="fa-regular fa-pen-to-square"></i></a>
+																			      </li>
+																			      <li>
+																			        <a href="" data-toggle="modal" data-target="#delUser<?php echo $user_id; ?>"><i class="fa-solid fa-trash-can"></i></a>
+																			      </li>
+																			    </ul>
+																			</div>
+																			</td>
 
-	<!-- Modal Start -->
-	<!-- Modal -->
-<div class="modal fade" id="delUser<?php echo $user_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this 
-        	<?php if( $role == 1 ) { ?> Admin <?php }
-			else if( $role == 2 ) { ?> User <?php } ?>	?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-btn">
-	        	<ul>
-	        		<li>
-	        			<a href="admin.php?it=Delete&deluser_id=<?php echo $user_id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
-	        		</li>
-	        		<li>
-	        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
-	        		</li>	        		
-	        	</ul>
-	        </div>
-      </div>
-    </div>
-  </div>
-</div>
-	<!-- Modal End -->
-											    </tr>
-									  		<?php }
-									  	?>
-									    
-									    
-									  </tbody>
-									</table>
+																			<!-- Modal Start -->
+																			<!-- Modal -->
+																		<div class="modal fade" id="delUser<?php echo $user_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																		  <div class="modal-dialog">
+																		    <div class="modal-content">
+																		      <div class="modal-header">
+																		        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this 
+																		        	<?php if( $role == 1 ) { ?> Admin <?php }
+																					else if( $role == 2 ) { ?> User <?php } ?>	?</h5>
+																		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																		          <span aria-hidden="true">&times;</span>
+																		        </button>
+																		      </div>
+																		      <div class="modal-body">
+																		        <div class="modal-btn">
+																			        	<ul>
+																			        		<li>
+																			        			<a href="admin.php?it=Delete&deluser_id=<?php echo $user_id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
+																			        		</li>
+																			        		<li>
+																			        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
+																			        		</li>	        		
+																			        	</ul>
+																			        </div>
+																		      </div>
+																		    </div>
+																		  </div>
+																		</div>
+																			<!-- Modal End -->
+															    </tr>
+													  		<?php }
+													  	?>
+													    
+													    
+													  </tbody>
+													</table>
 					              	<!-- Table End -->
 
 					              </div>
@@ -179,115 +179,115 @@
 
 							// Edit page start
 							// This edit page will show the update users info in a html file
-else if ( $it == "Edit" ) { 
-	if (isset($_GET['uid'])) {
-		$updateId = $_GET['uid'];
+							else if ( $it == "Edit" ) { 
+								if (isset($_GET['uid'])) {
+									$updateId = $_GET['uid'];
 
-		$sql = "SELECT * FROM users WHERE user_id = '$updateId' ORDER BY fullname ASC ";
-		$usersData = mysqli_query($db, $sql);
+									$sql = "SELECT * FROM users WHERE user_id = '$updateId' ORDER BY fullname ASC ";
+									$usersData = mysqli_query($db, $sql);
 
-		while ($row = mysqli_fetch_assoc($usersData)) {
-				$user_id  		= $row['user_id'];
-  			$fullname  		= $row['fullname'];
-  			$email  		= $row['email'];
-  			$password  		= $row['password'];
-  			$phone  		= $row['phone'];
-  			$address  		= $row['address'];
-  			$image  		= $row['image'];
-  			$role  			= $row['role'];
-  			$status  		= $row['status'];
-  			$join_date  	= $row['join_date'];
-			?>
-			<!-- Card Stat -->
-			<div class="card">
-			  <div class="card-header">
-			    <h3 class="card-title">Update Admin Information</h3>
-			    <div class="card-tools">
-			      	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-			    </div>
-			  </div>
-			  <div class="card-body">
-				<form action="admin.php?it=Update" method="POST" enctype="multipart/form-data">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="form-group">
-				        		<label>Full Name</label>					                	
-				        		<input type="text" name="fullname" class="form-control" placeholder="Your full name..." required autocomplete="off" value="<?php echo $fullname; ?>">
-				        	</div>
+									while ($row = mysqli_fetch_assoc($usersData)) {
+											$user_id  		= $row['user_id'];
+							  			$fullname  		= $row['fullname'];
+							  			$email  		= $row['email'];
+							  			$password  		= $row['password'];
+							  			$phone  		= $row['phone'];
+							  			$address  		= $row['address'];
+							  			$image  		= $row['image'];
+							  			$role  			= $row['role'];
+							  			$status  		= $row['status'];
+							  			$join_date  	= $row['join_date'];
+										?>
+										<!-- Card Stat -->
+										<div class="card">
+										  <div class="card-header">
+										    <h3 class="card-title">Update Admin Information</h3>
+										    <div class="card-tools">
+										      	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+										    </div>
+										  </div>
+										  <div class="card-body">
+											<form action="admin.php?it=Update" method="POST" enctype="multipart/form-data">
+												<div class="row">
+													<div class="col-lg-6">
+														<div class="form-group">
+											        		<label>Full Name</label>					                	
+											        		<input type="text" name="fullname" class="form-control" placeholder="Your full name..." required autocomplete="off" value="<?php echo $fullname; ?>">
+											        	</div>
 
-				        	<div class="form-group">
-				        		<label>Email</label>					                	
-				        		<input type="email" name="email" class="form-control" placeholder="Your email..." required autocomplete="off" value="<?php echo $email; ?>">
-				        	</div>
+											        	<div class="form-group">
+											        		<label>Email</label>					                	
+											        		<input type="email" name="email" class="form-control" placeholder="Your email..." required autocomplete="off" value="<?php echo $email; ?>">
+											        	</div>
 
-				        	<div class="form-group">
-				        		<label>Password</label>
-				        		<input type="password" name="password" class="form-control" placeholder="xxxxxx" autocomplete="off">
-				        	</div>
+											        	<div class="form-group">
+											        		<label>Password</label>
+											        		<input type="password" name="password" class="form-control" placeholder="xxxxxx" autocomplete="off">
+											        	</div>
 
-				        	<div class="form-group">
-				        		<label>Re-Type Password</label>		
-				        		<input type="password" name="re_password" class="form-control" placeholder="xxxxxx" autocomplete="off">
-				        	</div>
+											        	<div class="form-group">
+											        		<label>Re-Type Password</label>		
+											        		<input type="password" name="re_password" class="form-control" placeholder="xxxxxx" autocomplete="off">
+											        	</div>
 
-				        	<div class="form-group">
-				        		<label>Phone</label>					                	
-				        		<input type="tel" name="phone" class="form-control" placeholder="Phone No..." value="<?php echo $phone; ?>">
-				        	</div>        	
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-				        		<label>Address</label>		
-				        		<textarea name="address" class="form-control" placeholder="Your Address.." rows="4"><?php echo $address; ?></textarea>	
-				        	</div>
+											        	<div class="form-group">
+											        		<label>Phone</label>					                	
+											        		<input type="tel" name="phone" class="form-control" placeholder="Phone No..." value="<?php echo $phone; ?>">
+											        	</div>        	
+													</div>
+													<div class="col-lg-6">
+														<div class="form-group">
+											        		<label>Address</label>		
+											        		<textarea name="address" class="form-control" placeholder="Your Address.." rows="4"><?php echo $address; ?></textarea>	
+											        	</div>
 
-				        	<div class="form-group">
-				        		<label>Role</label>
-				        		<select name="role" class="form-control">
-				        			<option value="2">Please Select User Role</option>
-				        			<option value="1" <?php if ( $role == 1 ){ echo 'selected'; }?>>Admin</option>
-				        			<option value="2" <?php if ( $role == 2 ){ echo 'selected'; }?>>User</option>
-				        		</select>
-				        	</div>
+											        	<div class="form-group">
+											        		<label>Role</label>
+											        		<select name="role" class="form-control">
+											        			<option value="2">Please Select User Role</option>
+											        			<option value="1" <?php if ( $role == 1 ){ echo 'selected'; }?>>Admin</option>
+											        			<option value="2" <?php if ( $role == 2 ){ echo 'selected'; }?>>User</option>
+											        		</select>
+											        	</div>
 
-				        	<div class="form-group">
-				        		<label>Status</label>
-				        		<select name="status" class="form-control">
-				        			<option value="0">Please Select User Role</option>
-				        			<option value="1" <?php if ( $status == 1 ){ echo 'selected'; }?>>Active</option>
-				        			<option value="0" <?php if ( $status == 0 ){ echo 'selected'; }?>>InActive</option>
-				        		</select>
-				        	</div>
+											        	<div class="form-group">
+											        		<label>Status</label>
+											        		<select name="status" class="form-control">
+											        			<option value="0">Please Select User Role</option>
+											        			<option value="1" <?php if ( $status == 1 ){ echo 'selected'; }?>>Active</option>
+											        			<option value="0" <?php if ( $status == 0 ){ echo 'selected'; }?>>InActive</option>
+											        		</select>
+											        	</div>
 
-				        	<div class="form-group">
-				        		<label>Profile Picture</label>
-				        		<br>
-				        		<?php
-						      		if (!empty($image)) { ?>
-						      			<img src="dist/img/users/<?php echo $image; ?>" alt="" width="60">
-						      		<?php }
-						      		else { ?>
-						      			<p>No Picture Uploaded!</p>
-						      		<?php }
-						      	?>	
-										
-				        		<input type="file" name="image" class="form-control-file pt-2">
-				        	</div>
+											        	<div class="form-group">
+											        		<label>Profile Picture</label>
+											        		<br>
+											        		<?php
+													      		if (!empty($image)) { ?>
+													      			<img src="dist/img/users/<?php echo $image; ?>" alt="" width="60">
+													      		<?php }
+													      		else { ?>
+													      			<p>No Picture Uploaded!</p>
+													      		<?php }
+													      	?>	
+																	
+											        		<input type="file" name="image" class="form-control-file pt-2">
+											        	</div>
 
-				        	<div class="form-group">
-				        		<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-				        		<input type="submit" name="updateUser" class="btn btn-success btn-block" value="Save Changes">
-				        	</div>
-						</div>
-					</div>
-				</form>
-			  </div>
-			</div>
-			<!-- Card End -->
+											        	<div class="form-group">
+											        		<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+											        		<input type="submit" name="updateUser" class="btn btn-success btn-block" value="Save Changes">
+											        	</div>
+													</div>
+												</div>
+											</form>
+										  </div>
+										</div>
+										<!-- Card End -->
 
-		<?php }
-	}
-}
+									<?php }
+								}
+							}
 							// Edit page end
 
 
