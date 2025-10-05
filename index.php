@@ -151,7 +151,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    margin-bottom: 60px;">
+    ">
         <div class="container">
           <div class="row" style="">
             <div class="col-lg-12">

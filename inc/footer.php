@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="logo-ftr">
-                    <a href="index.php"><img src="assets/images/bg.png" alt="" width="100%"></a>
+                    <a href="index.php"><img src="assets/images/logo.png" alt="" width="100%"></a>
                 </div>                
             </div>
 
@@ -94,7 +94,7 @@
                     <div class="divedier" style=" width: 100%; background: whitesmoke; height: 2px;"></div>
                     <div class="row" style="align-content: center;">
                         <div class="col-lg-6 py-4">
-                        <p class="text-white">&copy; 2023 Threes Service</p>
+                        <p class="text-white">&copy; 2025 Online Library</p>
                     </div>
                     <div class="col-lg-6 py-4">
                         <nav class="nav justify-content-end">

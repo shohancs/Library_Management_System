@@ -28,6 +28,75 @@
 
     <!-- Custom Css -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+     <style>
+
+      .banner-part{
+          background-image: linear-gradient(to left, rgba(0,0,0,0.6), rgba(0,0,0,0.6)) ,url(assets/images/logo.png); 
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          padding: 114px 0px;
+      }
+      .fea-part{
+        background-image: url(assets/images/soft_bg.jpg); 
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+          padding: 20px 0;
+      }
+      .blog-details{
+        /*background-image: linear-gradient(to left, rgba(0,0,0,0.4), rgba(0,0,0,0.4)) ,url(assets/images/blog.jpg); 
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          padding: 100px 0;*/
+          background: #000 ;
+      }
+
+ 
+      header{
+        background-color: #f7f7f7;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .card:hover{
+        box-shadow: 1px 10px 15px #ccc;
+        transition: 0.5s;
+      }
+
+      .about{
+        background-image: linear-gradient(to left, rgba(0,0,0,0.5), rgba(0,0,0,0.4)) ,url(assets/images/about.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding: 114px 0px;
+
+      }
+
+
+
+
+    </style>
   </head>
 
   <body style="
@@ -46,7 +115,7 @@
               <!-- Nav Menu Start -->
               <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="index.php"><img src="assets/images/bg.png" alt="" style="width: 35%;"></a>
+                  <a class="navbar-brand" href="index.php"><img src="assets/images/logo.png" alt="" style="width: 30%; padding: 0;"></a>
 
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
