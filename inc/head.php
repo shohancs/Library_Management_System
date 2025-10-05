@@ -29,7 +29,7 @@
     <!-- Custom Css -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-     <style>
+        <style>
 
       .banner-part{
           background-image: linear-gradient(to left, rgba(0,0,0,0.6), rgba(0,0,0,0.6)) ,url(assets/images/logo.png); 

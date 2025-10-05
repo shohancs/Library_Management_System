@@ -1,4 +1,4 @@
-<?php include "inc/header.php"; ?>
+<?php include "inc/head.php"; ?>
 
 
 	<?php  
@@ -17,22 +17,18 @@
 	          ?>
 
 	          <section class="blog-details">
-						  <div class="container">
-						    <div class="row align-items-center">
+		        <div class="container d-flex justify-content-between align-items-center">
+		          <div>
+		            <h1 class="text-light" style=" font-family: 'Righteous', cursive;
+		          font-size: 60px;">Blog Details</h1>
+		          </div>
+		          <div>
+		            <img src="assets/images/shape-dots.svg" alt="" class="img-fluid" style="opacity: .5;">
+		          </div>
+		        </div>
+		      </section>
 
-						      <div class="col-lg-6">
-						        <h1 class="text-light" style=" font-family: 'Righteous', cursive;
-    font-size: 60px;">Blog Details</h1>
-						        
-						      </div>
-						      <div class="col-lg-6">
-						      	<img src="assets/images/shape-dots.svg" alt="" style="margin: 0px 0px 0px 215px; opacity: .5;">
-						      </div>
-						    </div>
-						  </div>
-						</section>
-
-				<section class="blog_details_search">
+				<section class="blog_details_search pt-5">
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-12">
