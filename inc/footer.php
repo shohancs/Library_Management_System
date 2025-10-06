@@ -75,6 +75,19 @@
                         ?>
                     </a>
                   </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link text-white" ><strong>Social Link</strong></a>
+                  </li>
+                  <li class="nav-item">
+                    <nav class="nav justify-content-start">
+                      <a class="nav-link active text-white" aria-current="page" href="" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a class="nav-link text-white" href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                      <a class="nav-link text-white" href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>                          
+                    </nav>
+                  </li>
+
+
                 </ul>
             </div>
 
@@ -94,13 +107,11 @@
                     <div class="divedier" style=" width: 100%; background: whitesmoke; height: 2px;"></div>
                     <div class="row" style="align-content: center;">
                         <div class="col-lg-6 py-4">
-                        <p class="text-white">&copy; 2025 Online Library</p>
+                        <p class="text-white">&copy; 2025 <strong>Online Library</strong>. </p>
                     </div>
                     <div class="col-lg-6 py-4">
                         <nav class="nav justify-content-end">
-                          <a class="nav-link active text-white" aria-current="page" href="" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                          <a class="nav-link text-white" href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                          <a class="nav-link text-white" href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>                          
+                          <p class="text-white">Developed by <a href="https://shohancs.com/" target="_blank">shohancs.com</a></p>                    
                         </nav>
                     </div>
                 </div>

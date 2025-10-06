@@ -12,33 +12,56 @@
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
                 </div>
                 <div class="input-group mb-3">
-                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="enter your email..." aria-label="emailHelp" aria-describedby="basic-addon2" required>
+                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="enter your email..." aria-label="emailHelp" aria-describedby="basic-addon2" required value="user@gmail.com">
                   <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-envelope"></i></span>
                 </div>
 
                 <div class="mb-0">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <label for="exampleInputPassword1" class="form-label">
+                    Password
+                  </label>
                 </div>
+
                 <div class="input-group mb-3">
-                  <input type="password" name="password" class="form-control" id="myInput" placeholder="enter your password..." required autocomplete="off">
+                  <input 
+                    type="text"  
+                    name="password" 
+                    class="form-control" 
+                    id="myInput" 
+                    placeholder="enter your password..." 
+                    required 
+                    autocomplete="off" 
+                    value="12345"
+                  >
                   <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-lock"></i></span>
                 </div>
 
                 <div class="input-group mb-3">
                   <div>
-                    <input class="form-check-input" type="checkbox" aria-label="Checkbox for following text input" onclick="myFunction()">
+                    <input 
+                      class="form-check-input" 
+                      type="checkbox" 
+                      aria-label="Checkbox for following text input" 
+                      id="showPass"
+                      onclick="myFunction()" 
+                      checked 
+                    >
                   </div>&nbsp; Show Password
-                  <script>
-                    function myFunction() {
-                      var x = document.getElementById("myInput");
-                      if (x.type === "password") {
-                        x.type = "text";
-                      } else {
-                        x.type = "password";
-                      }
-                    }
-                  </script>
                 </div>
+
+                <script>
+                  function myFunction() {
+                    var x = document.getElementById("myInput");
+                    x.type = x.type === "password" ? "text" : "password";
+                  }
+
+                  // Optional: ensure it's visible even if browser caches the input
+                  window.addEventListener("load", () => {
+                    document.getElementById("showPass").checked = true;
+                    document.getElementById("myInput").type = "text";
+                  });
+                </script>
+
 
                 <div class="mb-3">                
                   <button type="submit" name="login" class="btn btn-primary">Log in</button>

@@ -46,7 +46,7 @@
 		              <div class="card-body">
 					                
 					        <!-- Table Start -->
-					        <table class="table table-dark table-striped table-hover table-bordered">
+					        <table  class="table table-dark table-striped table-hover table-bordered">
 									  <thead>
 									    <tr>
 									      <th scope="col">#Sl.</th>
