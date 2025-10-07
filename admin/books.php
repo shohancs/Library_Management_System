@@ -44,137 +44,140 @@
 					              <div class="card-body">
 					                
 					              	<!-- Table Start -->
-					              	<table id="dataSearch" class="table table-dark table-striped table-hover table-bordered">
-									  <thead>
-									    <tr>
-									      <th scope="col">#Sl.</th>
-									      <th scope="col">Thumbnail</th>
-									      <th scope="col">Title</th>
-									      <th scope="col">Sub Title</th>
-									      <th scope="col">Author Name</th>
-									      <th scope="col">Category Name</th>
-									      <th scope="col">Quantity</th>								      
-									      <th scope="col">Status</th>								      
-									      <th scope="col">Action</th>
-									    </tr>
-									  </thead>
+					              	<div class="table-responsive">
+					              		<table id="dataSearch" class="table table-dark table-striped table-hover table-bordered">
+													  <thead>
+													    <tr>
+													      <th scope="col">#Sl.</th>
+													      <th scope="col">Thumbnail</th>
+													      <th scope="col">Title</th>
+													      <th scope="col">Sub Title</th>
+													      <th scope="col">Author Name</th>
+													      <th scope="col">Category Name</th>
+													      <th scope="col">Quantity</th>								      
+													      <th scope="col">Status</th>								      
+													      <th scope="col">Action</th>
+													    </tr>
+													  </thead>
 
-									  <tbody>
-									  	<?php  
-									  		$sql = "SELECT * FROM book ORDER BY title ASC";
-									  		$allData = mysqli_query($db, $sql);
+													  <tbody>
+													  	<?php  
+													  		$sql = "SELECT * FROM book ORDER BY title ASC";
+													  		$allData = mysqli_query($db, $sql);
 
-									  		$numOfBooks = mysqli_num_rows($allData);
+													  		$numOfBooks = mysqli_num_rows($allData);
 
-									  		if ($numOfBooks == 0) { ?>
-									  			<div class="alert alert-info" role="alert">
-													<i class="fa-solid fa-bell"> </i> Ooops!! No Book found in our library. Please add a book first.
-													</div>
-									  		<?php }
-									  		else {
-									  			$i = 0;
+													  		if ($numOfBooks == 0) { ?>
+													  			<div class="alert alert-info" role="alert">
+																	<i class="fa-solid fa-bell"> </i> Ooops!! No Book found in our library. Please add a book first.
+																	</div>
+													  		<?php }
+													  		else {
+													  			$i = 0;
 
-									  		while( $row = mysqli_fetch_assoc($allData) ) {
-									  			$id   						= $row['id'];
-									  			$title  					= $row['title'];
-									  			$sub_title  			= $row['sub_title'];
-									  			$description  		= $row['description'];
-									  			$cat_id  					= $row['cat_id'];
-									  			$author_name  		= $row['author_name'];
-									  			$quantity  				= $row['quantity'];
-									  			$image  					= $row['image'];
-									  			$status  					= $row['status'];
-									  			$i++;
-									  			?>
-									  			<tr>
-											      <th scope="row"><?php echo $i; ?></th>
-											      	<td>
-												      	<?php
-												      		if (!empty($image)) { ?>
-												      			<img src="dist/img/books/<?php echo $image; ?>" alt="" width="55">
-												      		<?php }
-												      		else { ?>
-												      			<img src="dist/img/books/blank_book.jpg" alt="" width="55">
-												      		<?php }
-												      	?>											      		
-											      	</td>
-											      <td><?php echo $title; ?></td>
-											      <td><?php echo $sub_title; ?></td>
-											      <td><?php echo $author_name; ?></td>
-											      <td>
-											      	<?php
-											      	 		$sql = "SELECT * FROM category WHERE cat_id = '$cat_id'";
-											      	 		$categoryName = mysqli_query($db, $sql);
+													  		while( $row = mysqli_fetch_assoc($allData) ) {
+													  			$id   						= $row['id'];
+													  			$title  					= $row['title'];
+													  			$sub_title  			= $row['sub_title'];
+													  			$description  		= $row['description'];
+													  			$cat_id  					= $row['cat_id'];
+													  			$author_name  		= $row['author_name'];
+													  			$quantity  				= $row['quantity'];
+													  			$image  					= $row['image'];
+													  			$status  					= $row['status'];
+													  			$i++;
+													  			?>
+													  			<tr>
+															      <th scope="row"><?php echo $i; ?></th>
+															      	<td>
+																      	<?php
+																      		if (!empty($image)) { ?>
+																      			<img src="dist/img/books/<?php echo $image; ?>" alt="" width="55">
+																      		<?php }
+																      		else { ?>
+																      			<img src="dist/img/books/blank_book.jpg" alt="" width="55">
+																      		<?php }
+																      	?>											      		
+															      	</td>
+															      <td><?php echo $title; ?></td>
+															      <td><?php echo $sub_title; ?></td>
+															      <td><?php echo $author_name; ?></td>
+															      <td>
+															      	<?php
+															      	 		$sql = "SELECT * FROM category WHERE cat_id = '$cat_id'";
+															      	 		$categoryName = mysqli_query($db, $sql);
 
-											      	 		while ($row = mysqli_fetch_assoc($categoryName)) {
-											      	 			$cat_id 	= $row['cat_id'];
-											      	 			$cat_name = $row['cat_name'];
-											      	 			?>
-											      	 			<span class="badge badge-warning"><?php echo $cat_name; ?></span>
-											      	 		<?php }
-											      	 ?>											      		
-											      	</td>
-											      <td><span class="badge badge-info"><?php echo $quantity; ?> Pcs</span></td>											      	 											      
-											      <td>
-											      	<?php
-											      		if( $status == 1 ) { ?>
-											      			<span class="badge badge-success">Active</span>
-											      		<?php }
-											      		else if ( $status == 2 ) { ?>
-											      			<span class="badge badge-danger">InActive</span>
-											      		<?php }
-											      	?>	
-											      </td>
-											      <td>
-	<div class="action-btn">
-	    <ul>
-	      <li>
-	        <a href="books.php?do=Edit&ubook=<?php echo $id; ?>"><i class="fa-regular fa-pen-to-square"></i></a>
-	      </li>
-	      <li>
-	        <a href="" data-toggle="modal" data-target="#delbook<?php echo $id; ?>"><i class="fa-solid fa-trash-can"></i></a>
-	      </li>
-	    </ul>
-	</div>
-	</td>
+															      	 		while ($row = mysqli_fetch_assoc($categoryName)) {
+															      	 			$cat_id 	= $row['cat_id'];
+															      	 			$cat_name = $row['cat_name'];
+															      	 			?>
+															      	 			<span class="badge badge-warning"><?php echo $cat_name; ?></span>
+															      	 		<?php }
+															      	 ?>											      		
+															      	</td>
+															      <td><span class="badge badge-info"><?php echo $quantity; ?> Pcs</span></td>											      	 											      
+															      <td>
+															      	<?php
+															      		if( $status == 1 ) { ?>
+															      			<span class="badge badge-success">Active</span>
+															      		<?php }
+															      		else if ( $status == 2 ) { ?>
+															      			<span class="badge badge-danger">InActive</span>
+															      		<?php }
+															      	?>	
+															      </td>
+															      <td>
+																			<div class="action-btn">
+																			    <ul>
+																			      <li>
+																			        <a href="books.php?do=Edit&ubook=<?php echo $id; ?>"><i class="fa-regular fa-pen-to-square"></i></a>
+																			      </li>
+																			      <li>
+																			        <a href="" data-toggle="modal" data-target="#delbook<?php echo $id; ?>"><i class="fa-solid fa-trash-can"></i></a>
+																			      </li>
+																			    </ul>
+																			</div>
+																		</td>
 
-	<!-- Modal Start -->
-	<!-- Modal -->
-<div class="modal fade" id="delbook<?php echo $id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this <?php echo $title; ?> Book </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-btn">
-	        	<ul>
-	        		<li>
-	        			<a href="books.php?do=Delete&delbook_id=<?php echo $id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
-	        		</li>
-	        		<li>
-	        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
-	        		</li>	        		
-	        	</ul>
-	        </div>
-      </div>
-    </div>
-  </div>
-</div>
-	<!-- Modal End -->
-											    </tr>
-									  		<?php }
-									  		}
+																			<!-- Modal Start -->
+																			<!-- Modal -->
+																			<div class="modal fade" id="delbook<?php echo $id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																			  <div class="modal-dialog">
+																			    <div class="modal-content">
+																			      <div class="modal-header">
+																			        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this <?php echo $title; ?> Book </h5>
+																			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																			          <span aria-hidden="true">&times;</span>
+																			        </button>
+																			      </div>
+																			      <div class="modal-body">
+																			        <div class="modal-btn">
+																				        	<ul>
+																				        		<li>
+																				        			<a href="books.php?do=Delete&delbook_id=<?php echo $id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
+																				        		</li>
+																				        		<li>
+																				        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
+																				        		</li>	        		
+																				        	</ul>
+																				        </div>
+																			      </div>
+																			    </div>
+																			  </div>
+																			</div>
+																			<!-- Modal End -->
+															    </tr>
+													  		<?php }
+													  		}
 
-									  		
-									  	?>
-									    
-									    
-									  </tbody>
-									</table>
+													  		
+													  	?>
+													    
+													    
+													  </tbody>
+													</table>
+					              	</div>
+					              	
 					              	<!-- Table End -->
 
 					              </div>
