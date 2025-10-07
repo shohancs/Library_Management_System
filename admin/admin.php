@@ -44,124 +44,127 @@
 					              <div class="card-body">
 					                
 					              	<!-- Table Start -->
-					              	<table id="dataSearch" class="table table-dark table-striped table-hover table-bordered">
-													  <thead>
-													    <tr>
-													      <th scope="col">#Sl.</th>
-													      <th scope="col">Picture</th>
-													      <th scope="col">Full Name</th>
-													      <th scope="col">Email</th>
-													      <th scope="col">Phone No.</th>
-													      <th scope="col">User Role</th>
-													      <th scope="col">Status</th>								      
-													      <th scope="col">Action</th>
-													    </tr>
-													  </thead>
+					              	<div class="table-responsive">
+					              		<table id="dataSearch" class="table table-dark table-striped table-hover table-bordered">
+										  <thead>
+										    <tr>
+										      <th scope="col">#Sl.</th>
+										      <th scope="col">Picture</th>
+										      <th scope="col">Full Name</th>
+										      <th scope="col">Email</th>
+										      <th scope="col">Phone No.</th>
+										      <th scope="col">User Role</th>
+										      <th scope="col">Status</th>								      
+										      <th scope="col">Action</th>
+										    </tr>
+										  </thead>
 
-													  <tbody>
-													  	<?php  
-													  		$sql = "SELECT * FROM users WHERE role = 1 ORDER BY fullname ASC";
-													  		$allUserData = mysqli_query($db, $sql);
-													  		$i = 0;
+										  <tbody>
+										  	<?php  
+										  		$sql = "SELECT * FROM users WHERE role = 1 ORDER BY fullname ASC";
+										  		$allUserData = mysqli_query($db, $sql);
+										  		$i = 0;
 
-													  		while( $row = mysqli_fetch_assoc($allUserData) ) {
-													  			$user_id  		= $row['user_id'];
-													  			$fullname  		= $row['fullname'];
-													  			$email  			= $row['email'];
-													  			$password  		= $row['password'];
-													  			$phone  			= $row['phone'];
-													  			$address  		= $row['address'];
-													  			$image  			= $row['image'];
-													  			$role  				= $row['role'];
-													  			$status  			= $row['status'];
-													  			$join_date  	= $row['join_date'];
-													  			$i++;
-													  			?>
-													  			<tr>
-															      <th scope="row"><?php echo $i; ?></th>
-															      	<td>
-																      	<?php
-																      		if (!empty($image)) { ?>
-																      			<img src="dist/img/users/<?php echo $image; ?>" alt="" width="35">
-																      		<?php }
-																      		else { ?>
-																      			<img src="dist/img/image.jpg" alt="" width="35">
-																      		<?php }
-																      	?>											      		
-															      	</td>
-															      <td><?php echo $fullname; ?></td>
-															      <td><?php echo $email; ?></td>
-															      <td><?php echo $phone; ?></td>
-															      <td>
-															      	<?php
-															      		if( $role == 1 ) { ?>
-															      			<span class="badge badge-primary">Admin</span>
-															      		<?php }
-															      		else if( $role == 2 ) { ?>
-															      			<span class="badge badge-warning">User</span>
-															      		<?php }
-															      	?>	
-															      	
-															      </td>
-															      <td>
-															      	<?php
-															      		if( $status == 1 ) { ?>
-															      			<span class="badge badge-success">Active</span>
-															      		<?php }
-															      		else if ( $status == 0 ) { ?>
-															      			<span class="badge badge-danger">InActive</span>
-															      		<?php }
-															      	?>	
-															      </td>
-															      <td>
-																			<div class="action-btn">
-																			    <ul>
-																			      <li>
-																			        <a href="admin.php?it=Edit&uid=<?php echo $user_id; ?>"><i class="fa-regular fa-pen-to-square"></i></a>
-																			      </li>
-																			      <li>
-																			        <a href="" data-toggle="modal" data-target="#delUser<?php echo $user_id; ?>"><i class="fa-solid fa-trash-can"></i></a>
-																			      </li>
-																			    </ul>
-																			</div>
-																			</td>
+										  		while( $row = mysqli_fetch_assoc($allUserData) ) {
+										  			$user_id  		= $row['user_id'];
+										  			$fullname  		= $row['fullname'];
+										  			$email  			= $row['email'];
+										  			$password  		= $row['password'];
+										  			$phone  			= $row['phone'];
+										  			$address  		= $row['address'];
+										  			$image  			= $row['image'];
+										  			$role  				= $row['role'];
+										  			$status  			= $row['status'];
+										  			$join_date  	= $row['join_date'];
+										  			$i++;
+										  			?>
+										  			<tr>
+												      <th scope="row"><?php echo $i; ?></th>
+												      	<td>
+													      	<?php
+													      		if (!empty($image)) { ?>
+													      			<img src="dist/img/users/<?php echo $image; ?>" alt="" width="35">
+													      		<?php }
+													      		else { ?>
+													      			<img src="dist/img/image.jpg" alt="" width="35">
+													      		<?php }
+													      	?>											      		
+												      	</td>
+												      <td><?php echo $fullname; ?></td>
+												      <td><?php echo $email; ?></td>
+												      <td><?php echo $phone; ?></td>
+												      <td>
+												      	<?php
+												      		if( $role == 1 ) { ?>
+												      			<span class="badge badge-primary">Admin</span>
+												      		<?php }
+												      		else if( $role == 2 ) { ?>
+												      			<span class="badge badge-warning">User</span>
+												      		<?php }
+												      	?>	
+												      	
+												      </td>
+												      <td>
+												      	<?php
+												      		if( $status == 1 ) { ?>
+												      			<span class="badge badge-success">Active</span>
+												      		<?php }
+												      		else if ( $status == 0 ) { ?>
+												      			<span class="badge badge-danger">InActive</span>
+												      		<?php }
+												      	?>	
+												      </td>
+												      <td>
+																<div class="action-btn">
+																    <ul>
+																      <li>
+																        <a href="admin.php?it=Edit&uid=<?php echo $user_id; ?>"><i class="fa-regular fa-pen-to-square"></i></a>
+																      </li>
+																      <li>
+																        <a href="" data-toggle="modal" data-target="#delUser<?php echo $user_id; ?>"><i class="fa-solid fa-trash-can"></i></a>
+																      </li>
+																    </ul>
+																</div>
+																</td>
 
-																			<!-- Modal Start -->
-																			<!-- Modal -->
-																		<div class="modal fade" id="delUser<?php echo $user_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-																		  <div class="modal-dialog">
-																		    <div class="modal-content">
-																		      <div class="modal-header">
-																		        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this 
-																		        	<?php if( $role == 1 ) { ?> Admin <?php }
-																					else if( $role == 2 ) { ?> User <?php } ?>	?</h5>
-																		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-																		          <span aria-hidden="true">&times;</span>
-																		        </button>
-																		      </div>
-																		      <div class="modal-body">
-																		        <div class="modal-btn">
-																			        	<ul>
-																			        		<li>
-																			        			<a href="admin.php?it=Delete&deluser_id=<?php echo $user_id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
-																			        		</li>
-																			        		<li>
-																			        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
-																			        		</li>	        		
-																			        	</ul>
-																			        </div>
-																		      </div>
-																		    </div>
-																		  </div>
-																		</div>
-																			<!-- Modal End -->
-															    </tr>
-													  		<?php }
-													  	?>
-													    
-													    
-													  </tbody>
-													</table>
+																<!-- Modal Start -->
+																<!-- Modal -->
+															<div class="modal fade" id="delUser<?php echo $user_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+															  <div class="modal-dialog">
+															    <div class="modal-content">
+															      <div class="modal-header">
+															        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this 
+															        	<?php if( $role == 1 ) { ?> Admin <?php }
+																		else if( $role == 2 ) { ?> User <?php } ?>	?</h5>
+															        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+															          <span aria-hidden="true">&times;</span>
+															        </button>
+															      </div>
+															      <div class="modal-body">
+															        <div class="modal-btn">
+																        	<ul>
+																        		<li>
+																        			<a href="admin.php?it=Delete&deluser_id=<?php echo $user_id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
+																        		</li>
+																        		<li>
+																        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
+																        		</li>	        		
+																        	</ul>
+																        </div>
+															      </div>
+															    </div>
+															  </div>
+															</div>
+																<!-- Modal End -->
+												    </tr>
+										  		<?php }
+										  	?>
+										    
+										    
+										  </tbody>
+										</table>
+					              	</div>
+					              	
 					              	<!-- Table End -->
 
 					              </div>
