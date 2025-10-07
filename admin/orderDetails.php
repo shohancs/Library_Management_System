@@ -135,10 +135,6 @@
 															      <li>
 															        <a href="orderDetails.php?do=Edit&orderId=<?php echo $id; ?>"><i class="fa-regular fa-pen-to-square"></i></a>
 															      </li>
-
-															      <li>
-															        <a href=""><i class="fa-solid fa-trash-can"></i></a>
-															      </li>
 															    </ul>
 														  	</div>
 														   </td>
@@ -314,10 +310,6 @@
 										}										
 										//Cancel										
 									}
-								}
-
-								else if ($do == 'Delete') {
-									
 								}
 			              	?>
 
