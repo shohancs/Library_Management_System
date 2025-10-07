@@ -1,7 +1,7 @@
 <?php include "inc/head.php"; ?>
 
       <!-- ::::: All Books Section Start ::::: -->
-      <section class="py-3">
+      <section class="py-3 search-section">
         <div class="container">
           <div class="row">
             <!-- Book Content Start -->

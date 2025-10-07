@@ -3,14 +3,6 @@
   ob_start();
   include "inc/db.php";
 
-  // Problem same email ea anaother password dilew access kora jachea ei condition er karonea
-
-  // if (!empty($_SESSION['user_id']) || !empty($_SESSION['email'])) {
-  //   header("Location: dashboard.php");
-  // }
-
-  // Ekhon uporer code na use korar karone ami dashboard ea log in tahaka obostay abar login page a back korte parteci, dashboard theke log in pagea ea na jawar jonno ei code ti use kora hoyecilo.
-
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +33,7 @@
 
       <form action="" method="POST">
         <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Email">
+          <input type="email" name="email" class="form-control" placeholder="Email" value="admin@gmail.com">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -50,7 +42,7 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password" id="myInput">
+          <input type="password" name="password" class="form-control" placeholder="Password" id="myInput" value="12345">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -61,20 +53,30 @@
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <div>
-              <input type="checkbox" aria-label="Checkbox for following text input" onclick="myFunction()">
+              <!-- checked যোগ করা হয়েছে -->
+              <input type="checkbox" aria-label="Checkbox for following text input" onclick="myFunction()" checked>
             </div>&nbsp; Show Password
           </div>
-          <script>
-            function myFunction() {
-              var x = document.getElementById("myInput");
-              if (x.type === "password") {
-                x.type = "text";
-              } else {
-                x.type = "password";
-              }
-            }
-          </script>
         </div>
+
+        <script>
+          // ডিফল্টভাবে Show Password অন থাকবে
+          function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+
+          // পেজ লোডের সময়ই পাসওয়ার্ড দেখাবে
+          window.onload = function() {
+            var x = document.getElementById("myInput");
+            x.type = "text";
+          };
+        </script>
+
 
         <div class="row">
           <div class="col-12">
@@ -122,25 +124,6 @@
             else {
               header("Location: index.php");
             }
-
-/* Same work line 102-112
-if ($_SESSION['role'] == 1) {
-  if ( $email == $_SESSION['email'] && $hassedPass == $password ) {
-    header("Location: dashboard.php");
-  }
-  else if ( $email != $_SESSION['email'] && $hassedPass != $password ) {
-    header("Location: index.php");
-  }
-  else {
-    header("Location: index.php");
-  }
-}
-else {
-  session_unset();
-  session_destroy();
-  header("Location: index.php");
-}
-*/
             
           }
         }

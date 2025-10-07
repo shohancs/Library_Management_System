@@ -19,11 +19,11 @@
 	          <section class="blog-details">
 		        <div class="container d-flex justify-content-between align-items-center">
 		          <div>
-		            <h1 class="text-light" style=" font-family: 'Righteous', cursive;
-		          font-size: 60px;">Blog Details</h1>
+		            <h2 class="text-light" style=" font-family: 'Righteous', cursive;
+		          font-size: 40px;">Blog Details</h2>
 		          </div>
 		          <div>
-		            <img src="assets/images/shape-dots.svg" alt="" class="img-fluid" style="opacity: .5;">
+		            <img src="assets/images/shape-dots.svg" alt="" class="img-fluid" style="opacity: .5; width: 50%;">
 		          </div>
 		        </div>
 		      </section>
@@ -52,7 +52,7 @@
 			                            </div>
 
 			                            <div class="pt-3">
-			                            	<h1 class="tarikhhh"><?php echo $join_date; ?></h1>
+			                            	<p class="tarikhhh"><?php echo $join_date; ?></p>
 			                            </div>
 
 			                            <div class="pt-2">

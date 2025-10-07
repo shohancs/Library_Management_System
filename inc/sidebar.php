@@ -46,10 +46,10 @@
                             <div>
                                 <?php
                                   if (!empty($image)) { ?>
-                                    <img src="admin/dist/img/books/<?php echo $image; ?>" alt="" width="100%" class="pb-3">
+                                    <img src="admin/dist/img/books/<?php echo $image; ?>" alt="" width="100%" class="pb-3" loading="lazy">
                                   <?php }
                                   else { ?>
-                                    <img src="admin/dist/img/books/blank_book.jpg" alt="" class="img-fluid">
+                                    <img src="admin/dist/img/books/blank_book.jpg" alt="" class="img-fluid" loading="lazy">
                                   <?php }
                                 ?>                          
                             </div>

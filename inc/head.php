@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
     <!-- favicon link here -->
-    <link rel="shortcut icon" href="assets/images/favicon.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
 
     <!-- Font Awesome Kit Link Here -->
     <script src="https://kit.fontawesome.com/0c66e46c25.js" crossorigin="anonymous"></script>
@@ -29,74 +29,6 @@
     <!-- Custom Css -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-        <style>
-
-      .banner-part{
-          background-image: linear-gradient(to left, rgba(0,0,0,0.6), rgba(0,0,0,0.6)) ,url(assets/images/logo.png); 
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-          padding: 114px 0px;
-      }
-      .fea-part{
-        background-image: url(assets/images/soft_bg.jpg); 
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-          background-attachment: fixed;
-          padding: 20px 0;
-      }
-      .blog-details{
-        /*background-image: linear-gradient(to left, rgba(0,0,0,0.4), rgba(0,0,0,0.4)) ,url(assets/images/blog.jpg); 
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-          padding: 100px 0;*/
-          background: #000 ;
-      }
-
- 
-      header{
-        background-color: #f7f7f7;
-      }
-
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
-        z-index: 1;
-      }
-
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-
-      .card:hover{
-        box-shadow: 1px 10px 15px #ccc;
-        transition: 0.5s;
-      }
-
-      .about{
-        background-image: linear-gradient(to left, rgba(0,0,0,0.5), rgba(0,0,0,0.4)) ,url(assets/images/about.webp);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        padding: 114px 0px;
-
-      }
-
-
-
-
-    </style>
   </head>
 
   <body style="
@@ -127,13 +59,13 @@
                       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                      </li>                      
-                      <li class="nav-item">
-                        <a class="nav-link" href="blogdetails.php">Blog</a>
-                      </li>
+                      </li>             
                       <li class="nav-item">
                         <a class="nav-link" href="aboutus.php">About Us</a>
-                      </li>
+                      </li>         
+                      <li class="nav-item">
+                        <a class="nav-link" href="blogdetails.php">Blog</a>
+                      </li>                      
                       <li class="nav-item">
                         <a class="nav-link" href="#foot">Contact Us</a>
                       </li>

@@ -78,22 +78,7 @@
           <!-- /.col -->
 
           <div class="col-md-4">
-            <!-- Info Boxes Style 2 -->
             
-            <!-- /.info-box -->
-            
-            <!-- /.info-box -->
-            
-            <!-- /.info-box -->
-            
-            <!-- /.info-box -->
-
-            
-            <!-- /.card -->
-
-            <!-- PRODUCT LIST -->
-            
-            <!-- /.card -->
           </div>
           <!-- /.col -->
         </div>

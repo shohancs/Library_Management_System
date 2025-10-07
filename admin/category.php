@@ -343,80 +343,80 @@
 										$status 			= $row['status'];
 										?>
 
-<!-- Card Stat -->
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">Edit <?php echo $cat_name; ?> Category</h3>
-    <div class="card-tools">
-      	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-    </div>
-  </div>
-  <div class="card-body">
-    <form action="category.php?do=Update" method="POST" enctype="multipart/form-data">
-    	<div class="form-group">
-    		<label>Category Name <sup style="font-size: 8px; color: #DD5353; top: -9px;"><small><i class="fa-solid fa-star"></i></small></sup></label> 				                	
-    		<input type="text" name="name" class="form-control" placeholder="Your full name..." required autocomplete="off" value="<?php echo $cat_name; ?>">
-    	</div>
+										<!-- Card Stat -->
+										<div class="card">
+										  <div class="card-header">
+										    <h3 class="card-title">Edit <?php echo $cat_name; ?> Category</h3>
+										    <div class="card-tools">
+										      	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+										    </div>
+										  </div>
+										  <div class="card-body">
+										    <form action="category.php?do=Update" method="POST" enctype="multipart/form-data">
+										    	<div class="form-group">
+										    		<label>Category Name <sup style="font-size: 8px; color: #DD5353; top: -9px;"><small><i class="fa-solid fa-star"></i></small></sup></label> 				                	
+										    		<input type="text" name="name" class="form-control" placeholder="Your full name..." required autocomplete="off" value="<?php echo $cat_name; ?>">
+										    	</div>
 
-    	<div class="form-group">
-    		<label>Description (Optional)</label> 
-    		<textarea id="description" name="desc" class="form-control" placeholder="Type Here..." rows="5"><?php echo $cat_desc; ?></textarea>		
-    	</div>
+										    	<div class="form-group">
+										    		<label>Description (Optional)</label> 
+										    		<textarea id="description" name="desc" class="form-control" placeholder="Type Here..." rows="5"><?php echo $cat_desc; ?></textarea>		
+										    	</div>
 
-    	<!-- EDIT IS PARENT PART START -->
-  		<div class="form-group">
-  			<label>Parent Category</label>
-  			<select class="form-control" name="is_parent">
-  				<?php  
-					  // Primary category Edit part start
-						if ( $is_parent == 0 ) {
-							$sql = "SELECT cat_id AS 'pCatID', cat_name AS 'pCatName' FROM category WHERE is_parent = 0 ORDER BY cat_name ASC "; 
-							$parentCat = mysqli_query($db, $sql);
+										    	<!-- EDIT IS PARENT PART START -->
+										  		<div class="form-group">
+										  			<label>Parent Category</label>
+										  			<select class="form-control" name="is_parent">
+										  				<?php  
+															  // Primary category Edit part start
+																if ( $is_parent == 0 ) {
+																	$sql = "SELECT cat_id AS 'pCatID', cat_name AS 'pCatName' FROM category WHERE is_parent = 0 ORDER BY cat_name ASC "; 
+																	$parentCat = mysqli_query($db, $sql);
 
-							while( $row = mysqli_fetch_assoc($parentCat) ) {
-							extract($row);
-							?>
-							<option value="0" <?php if ($pCatID == $updateId){ echo 'selected';}?>><?php echo $pCatName; ?></option>
+																	while( $row = mysqli_fetch_assoc($parentCat) ) {
+																	extract($row);
+																	?>
+																	<option value="0" <?php if ($pCatID == $updateId){ echo 'selected';}?>><?php echo $pCatName; ?></option>
 
-							<?php }
-						}
-						// Primary category Edit part End
+																	<?php }
+																}
+																// Primary category Edit part End
 
-						// Sub category Edit part Start
-						else {
-							$sql = "SELECT cat_id AS 'CatID', cat_name AS 'CatName' FROM category WHERE is_parent = 0 ORDER BY cat_name ASC "; 
-							$parentCat = mysqli_query($db, $sql);
+																// Sub category Edit part Start
+																else {
+																	$sql = "SELECT cat_id AS 'CatID', cat_name AS 'CatName' FROM category WHERE is_parent = 0 ORDER BY cat_name ASC "; 
+																	$parentCat = mysqli_query($db, $sql);
 
-							while( $row = mysqli_fetch_assoc($parentCat) ) {
-							extract($row);
-							?>
-							<option value="<?php echo $CatID; ?>" <?php if($CatID == $is_parent){ echo 'selected';}?>><?php echo $CatName; ?></option>
+																	while( $row = mysqli_fetch_assoc($parentCat) ) {
+																	extract($row);
+																	?>
+																	<option value="<?php echo $CatID; ?>" <?php if($CatID == $is_parent){ echo 'selected';}?>><?php echo $CatName; ?></option>
 
-							<?php }
-						}
-						// Sub category Edit part End
-					?>
-  			</select>
-  		</div>
-			<!-- EDIT IS PARENT PART END -->
+																	<?php }
+																}
+																// Sub category Edit part End
+															?>
+										  			</select>
+										  		</div>
+													<!-- EDIT IS PARENT PART END -->
 
-    	<div class="form-group">
-    		<label>Category Status <sup style="font-size: 8px; color: #DD5353; top: -9px;"><small><i class="fa-solid fa-star"></i></small></sup></label> 				                	
-    		<select class="form-control" name="status">
-    			<option value="1">Please select the Status</option>
-    			<option value="1" <?php if ( $status == 1 ) { echo 'selected'; } ?>>Active</option>
-    			<option value="2" <?php if ( $status == 2 ) { echo 'selected'; } ?>>InActive</option>
-    		</select>
-    	</div>
+										    	<div class="form-group">
+										    		<label>Category Status <sup style="font-size: 8px; color: #DD5353; top: -9px;"><small><i class="fa-solid fa-star"></i></small></sup></label> 				                	
+										    		<select class="form-control" name="status">
+										    			<option value="1">Please select the Status</option>
+										    			<option value="1" <?php if ( $status == 1 ) { echo 'selected'; } ?>>Active</option>
+										    			<option value="2" <?php if ( $status == 2 ) { echo 'selected'; } ?>>InActive</option>
+										    		</select>
+										    	</div>
 
-    	<div class="form-group">
-    		<input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>">
-    		<input type="submit" class="btn btn-success" name="updateCat" value="Save Changes">
-    	</div>
-    </form>
-  </div>
-</div>
-<!-- Card End -->
+										    	<div class="form-group">
+										    		<input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>">
+										    		<input type="submit" class="btn btn-success" name="updateCat" value="Save Changes">
+										    	</div>
+										    </form>
+										  </div>
+										</div>
+										<!-- Card End -->
 
 									<?php }
 								}

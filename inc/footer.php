@@ -16,7 +16,7 @@
                 </div>                
             </div>
 
-            <div class="col-lg-4" id="foot">
+            <div class="col-lg-4 pb-5" id="foot">
                 <h4 class="text-white">CONTACT US</h4>
                 <ul class="nav flex-column">
                   <li class="nav-item">
@@ -103,21 +103,17 @@
                 </span>
             </div>
             <div class="col-lg-12">
-                <div class="bottom-part py-5 pb-0">
-                    <div class="divedier" style=" width: 100%; background: whitesmoke; height: 2px;"></div>
-                    <div class="row" style="align-content: center;">
-                        <div class="col-lg-6 py-4">
-                        <p class="text-white">&copy; 2025 <strong>Online Library</strong>. </p>
-                    </div>
-                    <div class="col-lg-6 py-4">
-                        <nav class="nav justify-content-end">
-                          <p class="text-white">Developed by <a href="https://shohancs.com/" target="_blank">shohancs.com</a></p>                    
-                        </nav>
-                    </div>
+              <div class="bottom-part pb-0">
+                <div class="divedier" style="width: 100%; background: whitesmoke; height: 2px;"></div>
+
+                <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap py-3">
+                  <p class="text-white mb-0">&copy; 2025 <strong>Online Library</strong>.</p>
+                  <p class="text-white mb-0">Developed by <a href="https://shohancs.com/" target="_blank">shohancs.com</a></p>
                 </div>
-                    
-                </div>
+
+              </div>
             </div>
+
         </div>
         
     </div>

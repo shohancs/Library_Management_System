@@ -228,44 +228,44 @@
 							// Store page start
 							// This store page will store the new users data into the Database
 							else if ( $do == "Store" ) {
-if (isset($_POST['addBook'])) {
-	$blog_title  		= mysqli_real_escape_string($db, $_POST['blog_title']);
-	$blog_text  		= mysqli_real_escape_string($db, $_POST['blog_text']);
-	$status  			= $_POST['status'];
-	
-	$image 				= $_FILES['image']['name'];
-	$image_temp     	= $_FILES['image']['tmp_name'];
+								if (isset($_POST['addBook'])) {
+									$blog_title  		= mysqli_real_escape_string($db, $_POST['blog_title']);
+									$blog_text  		= mysqli_real_escape_string($db, $_POST['blog_text']);
+									$status  			= $_POST['status'];
+									
+									$image 				= $_FILES['image']['name'];
+									$image_temp     	= $_FILES['image']['tmp_name'];
 
-	if ( !empty($image) ) {
-			$image_name		= rand(1, 999999999) ."_". $image;
-			move_uploaded_file($image_temp, "dist/img/books/$image_name");
-
-
-			$sql = "INSERT INTO blogs ( image, blog_title, blog_text, status, join_date ) VALUES ('$image_name', '$blog_title', '$blog_text', '$status', now())";
-			$registerBook = mysqli_query($db, $sql);
-
-			if ( $registerBook ) {
-				header("Location: blog.php?do=Manage");
-			}
-			else {
-				die("mysqli Error" . mysqli_error($db));
-			}
-	}
-	else{
-		$sql = "INSERT INTO blogs ( blog_title, blog_text, status, join_date ) VALUES ('$blog_title', '$blog_text', '$status', now())";
-			$registerBook = mysqli_query($db, $sql);
-
-			if ( $registerBook ) {
-				header("Location: blog.php?do=Manage");
-			}
-			else {
-				die("mysqli Error" . mysqli_error($db));
-			}
-	}
-											
+									if ( !empty($image) ) {
+											$image_name		= rand(1, 999999999) ."_". $image;
+											move_uploaded_file($image_temp, "dist/img/books/$image_name");
 
 
-}
+											$sql = "INSERT INTO blogs ( image, blog_title, blog_text, status, join_date ) VALUES ('$image_name', '$blog_title', '$blog_text', '$status', now())";
+											$registerBook = mysqli_query($db, $sql);
+
+											if ( $registerBook ) {
+												header("Location: blog.php?do=Manage");
+											}
+											else {
+												die("mysqli Error" . mysqli_error($db));
+											}
+									}
+									else{
+										$sql = "INSERT INTO blogs ( blog_title, blog_text, status, join_date ) VALUES ('$blog_title', '$blog_text', '$status', now())";
+											$registerBook = mysqli_query($db, $sql);
+
+											if ( $registerBook ) {
+												header("Location: blog.php?do=Manage");
+											}
+											else {
+												die("mysqli Error" . mysqli_error($db));
+											}
+									}
+																			
+
+
+								}
 							}
 							// Store page End
 
@@ -291,13 +291,13 @@ if (isset($_POST['addBook'])) {
 						  			?>
 						  			<!-- Card Stat -->
 								<div class="card">
-		              <div class="card-header">
-		                <h3 class="card-title">Update <?php echo $blog_title; ?> Book Information</h3>
-		                <div class="card-tools">
-		                  	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-		                </div>
-		              </div>
-		              <div class="card-body">
+					              <div class="card-header">
+					                <h3 class="card-title">Update <?php echo $blog_title; ?> Book Information</h3>
+					                <div class="card-tools">
+					                  	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+					                </div>
+					              </div>
+					              <div class="card-body">
 										<form action="blog.php?do=Update" method="POST" enctype="multipart/form-data">
 											<div class="row">
 												<div class="col-lg-6">
@@ -313,38 +313,38 @@ if (isset($_POST['addBook'])) {
 												</div>
 
 												<div class="col-lg-6">
-<div class="form-group">
-	<label>Status</label>
-	<select name="status" class="form-control">
-		<option value="1">Please Select User Role</option>
-		<option value="1" <?php if ( $status == 1 ) {echo 'selected'; } ?>>Active</option>
-		<option value="2" <?php if ( $status == 2 ) {echo 'selected'; } ?>>InActive</option>
-	</select>
-</div> 																									        	
+													<div class="form-group">
+														<label>Status</label>
+														<select name="status" class="form-control">
+															<option value="1">Please Select User Role</option>
+															<option value="1" <?php if ( $status == 1 ) {echo 'selected'; } ?>>Active</option>
+															<option value="2" <?php if ( $status == 2 ) {echo 'selected'; } ?>>InActive</option>
+														</select>
+													</div> 																									        	
 
-<div class="form-group">
-	<label>Thumbnail Picture</label>
-	<br>
-	<?php
-  		if (!empty($image)) { ?>
-  			<img src="dist/img/books/<?php echo $image; ?>" alt="" width="60">
-  		<?php }
-  		else { ?>
-  			<p>No Picture Uploaded!</p>
-  		<?php }
-  	?>	
-	<input type="file" name="image" class="form-control-file pt-2">
-</div>
+													<div class="form-group">
+														<label>Thumbnail Picture</label>
+														<br>
+														<?php
+													  		if (!empty($image)) { ?>
+													  			<img src="dist/img/books/<?php echo $image; ?>" alt="" width="60">
+													  		<?php }
+													  		else { ?>
+													  			<p>No Picture Uploaded!</p>
+													  		<?php }
+													  	?>	
+														<input type="file" name="image" class="form-control-file pt-2">
+													</div>
 
-<div class="form-group">
-	<input type="hidden" name="blog_id" value="<?php echo $blog_id; ?>">
-	<input type="submit" name="updateBook" class="btn btn-success btn-block" value="Update Book info">
-</div>
+													<div class="form-group">
+														<input type="hidden" name="blog_id" value="<?php echo $blog_id; ?>">
+														<input type="submit" name="updateBook" class="btn btn-success btn-block" value="Update Book info">
+													</div>
 												</div>
 											</div>
 										</form>
-		              </div>
-		            </div>
+					              </div>
+					            </div>
 								<!-- Card End -->
 									<?php }
 								}
@@ -357,14 +357,14 @@ if (isset($_POST['addBook'])) {
 							// This Update page will Update the users existing data info in a html file
 							else if ( $do == "Update" ) {
 								if (isset($_POST['blog_id'])) {
-	$blog_id  			= $_POST['blog_id'];
-	$blog_title  		= mysqli_real_escape_string($db, $_POST['blog_title']);
-	$blog_text  		= mysqli_real_escape_string($db, $_POST['blog_text']);
-	$status  			= $_POST['status'];
-	
-	
-	$image 				= $_FILES['image']['name'];
-	$image_temp     	= $_FILES['image']['tmp_name'];
+									$blog_id  			= $_POST['blog_id'];
+									$blog_title  		= mysqli_real_escape_string($db, $_POST['blog_title']);
+									$blog_text  		= mysqli_real_escape_string($db, $_POST['blog_text']);
+									$status  			= $_POST['status'];
+									
+									
+									$image 				= $_FILES['image']['name'];
+									$image_temp     	= $_FILES['image']['tmp_name'];
 
 									// 
 									// Both for Password and Picture with all data change
@@ -383,10 +383,10 @@ if (isset($_POST['addBook'])) {
 										$image_name		= rand(1, 999999999) ."_". $image;
 										move_uploaded_file($image_temp, "dist/img/books/$image_name");
 
-$sql = "UPDATE blogs SET image='$image_name', blog_title='$blog_title', blog_text='$blog_text',
- status='$status' WHERE blog_id = '$blog_id' ";
+										$sql = "UPDATE blogs SET image='$image_name', blog_title='$blog_title', blog_text='$blog_text',
+										 status='$status' WHERE blog_id = '$blog_id' ";
 
-	$updateBook = mysqli_query($db, $sql);
+											$updateBook = mysqli_query($db, $sql);
 
 											if ( $updateBook ) {
 												header("Location: blog.php?do=Manage");
@@ -399,7 +399,7 @@ $sql = "UPDATE blogs SET image='$image_name', blog_title='$blog_title', blog_tex
 									// Only Chnge the Data
 									else if ( empty($image) ) {
 
-$sql = "UPDATE blogs SET blog_title='$blog_title', blog_text='$blog_text', status='$status'  WHERE blog_id = '$blog_id' ";
+										$sql = "UPDATE blogs SET blog_title='$blog_title', blog_text='$blog_text', status='$status'  WHERE blog_id = '$blog_id' ";
 
 											$updateBook = mysqli_query($db, $sql);
 

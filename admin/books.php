@@ -46,136 +46,136 @@
 					              	<!-- Table Start -->
 					              	<div class="table-responsive">
 					              		<table id="dataSearch" class="table table-dark table-striped table-hover table-bordered">
-													  <thead>
-													    <tr>
-													      <th scope="col">#Sl.</th>
-													      <th scope="col">Thumbnail</th>
-													      <th scope="col">Title</th>
-													      <th scope="col">Sub Title</th>
-													      <th scope="col">Author Name</th>
-													      <th scope="col">Category Name</th>
-													      <th scope="col">Quantity</th>								      
-													      <th scope="col">Status</th>								      
-													      <th scope="col">Action</th>
-													    </tr>
-													  </thead>
+										  <thead>
+										    <tr>
+										      <th scope="col">#Sl.</th>
+										      <th scope="col">Thumbnail</th>
+										      <th scope="col">Title</th>
+										      <th scope="col">Sub Title</th>
+										      <th scope="col">Author Name</th>
+										      <th scope="col">Category Name</th>
+										      <th scope="col">Quantity</th>								      
+										      <th scope="col">Status</th>								      
+										      <th scope="col">Action</th>
+										    </tr>
+										  </thead>
 
-													  <tbody>
-													  	<?php  
-													  		$sql = "SELECT * FROM book ORDER BY title ASC";
-													  		$allData = mysqli_query($db, $sql);
+										  <tbody>
+										  	<?php  
+										  		$sql = "SELECT * FROM book ORDER BY title ASC";
+										  		$allData = mysqli_query($db, $sql);
 
-													  		$numOfBooks = mysqli_num_rows($allData);
+										  		$numOfBooks = mysqli_num_rows($allData);
 
-													  		if ($numOfBooks == 0) { ?>
-													  			<div class="alert alert-info" role="alert">
-																	<i class="fa-solid fa-bell"> </i> Ooops!! No Book found in our library. Please add a book first.
-																	</div>
-													  		<?php }
-													  		else {
-													  			$i = 0;
+										  		if ($numOfBooks == 0) { ?>
+										  			<div class="alert alert-info" role="alert">
+														<i class="fa-solid fa-bell"> </i> Ooops!! No Book found in our library. Please add a book first.
+														</div>
+										  		<?php }
+										  		else {
+										  			$i = 0;
 
-													  		while( $row = mysqli_fetch_assoc($allData) ) {
-													  			$id   						= $row['id'];
-													  			$title  					= $row['title'];
-													  			$sub_title  			= $row['sub_title'];
-													  			$description  		= $row['description'];
-													  			$cat_id  					= $row['cat_id'];
-													  			$author_name  		= $row['author_name'];
-													  			$quantity  				= $row['quantity'];
-													  			$image  					= $row['image'];
-													  			$status  					= $row['status'];
-													  			$i++;
-													  			?>
-													  			<tr>
-															      <th scope="row"><?php echo $i; ?></th>
-															      	<td>
-																      	<?php
-																      		if (!empty($image)) { ?>
-																      			<img src="dist/img/books/<?php echo $image; ?>" alt="" width="55">
-																      		<?php }
-																      		else { ?>
-																      			<img src="dist/img/books/blank_book.jpg" alt="" width="55">
-																      		<?php }
-																      	?>											      		
-															      	</td>
-															      <td><?php echo $title; ?></td>
-															      <td><?php echo $sub_title; ?></td>
-															      <td><?php echo $author_name; ?></td>
-															      <td>
-															      	<?php
-															      	 		$sql = "SELECT * FROM category WHERE cat_id = '$cat_id'";
-															      	 		$categoryName = mysqli_query($db, $sql);
+										  		while( $row = mysqli_fetch_assoc($allData) ) {
+										  			$id   						= $row['id'];
+										  			$title  					= $row['title'];
+										  			$sub_title  			= $row['sub_title'];
+										  			$description  		= $row['description'];
+										  			$cat_id  					= $row['cat_id'];
+										  			$author_name  		= $row['author_name'];
+										  			$quantity  				= $row['quantity'];
+										  			$image  					= $row['image'];
+										  			$status  					= $row['status'];
+										  			$i++;
+										  			?>
+										  			<tr>
+												      <th scope="row"><?php echo $i; ?></th>
+												      	<td>
+													      	<?php
+													      		if (!empty($image)) { ?>
+													      			<img src="dist/img/books/<?php echo $image; ?>" alt="" width="55">
+													      		<?php }
+													      		else { ?>
+													      			<img src="dist/img/books/blank_book.jpg" alt="" width="55">
+													      		<?php }
+													      	?>											      		
+												      	</td>
+												      <td><?php echo $title; ?></td>
+												      <td><?php echo $sub_title; ?></td>
+												      <td><?php echo $author_name; ?></td>
+												      <td>
+												      	<?php
+											      	 		$sql = "SELECT * FROM category WHERE cat_id = '$cat_id'";
+											      	 		$categoryName = mysqli_query($db, $sql);
 
-															      	 		while ($row = mysqli_fetch_assoc($categoryName)) {
-															      	 			$cat_id 	= $row['cat_id'];
-															      	 			$cat_name = $row['cat_name'];
-															      	 			?>
-															      	 			<span class="badge badge-warning"><?php echo $cat_name; ?></span>
-															      	 		<?php }
-															      	 ?>											      		
-															      	</td>
-															      <td><span class="badge badge-info"><?php echo $quantity; ?> Pcs</span></td>											      	 											      
-															      <td>
-															      	<?php
-															      		if( $status == 1 ) { ?>
-															      			<span class="badge badge-success">Active</span>
-															      		<?php }
-															      		else if ( $status == 2 ) { ?>
-															      			<span class="badge badge-danger">InActive</span>
-															      		<?php }
-															      	?>	
-															      </td>
-															      <td>
-																			<div class="action-btn">
-																			    <ul>
-																			      <li>
-																			        <a href="books.php?do=Edit&ubook=<?php echo $id; ?>"><i class="fa-regular fa-pen-to-square"></i></a>
-																			      </li>
-																			      <li>
-																			        <a href="" data-toggle="modal" data-target="#delbook<?php echo $id; ?>"><i class="fa-solid fa-trash-can"></i></a>
-																			      </li>
-																			    </ul>
-																			</div>
-																		</td>
+											      	 		while ($row = mysqli_fetch_assoc($categoryName)) {
+											      	 			$cat_id 	= $row['cat_id'];
+											      	 			$cat_name = $row['cat_name'];
+											      	 			?>
+											      	 			<span class="badge badge-warning"><?php echo $cat_name; ?></span>
+											      	 		<?php }
+												      	 ?>											      		
+												      	</td>
+												      <td><span class="badge badge-info"><?php echo $quantity; ?> Pcs</span></td>											      	 											      
+												      <td>
+												      	<?php
+												      		if( $status == 1 ) { ?>
+												      			<span class="badge badge-success">Active</span>
+												      		<?php }
+												      		else if ( $status == 2 ) { ?>
+												      			<span class="badge badge-danger">InActive</span>
+												      		<?php }
+												      	?>	
+												      </td>
+												      <td>
+															<div class="action-btn">
+															    <ul>
+															      <li>
+															        <a href="books.php?do=Edit&ubook=<?php echo $id; ?>"><i class="fa-regular fa-pen-to-square"></i></a>
+															      </li>
+															      <li>
+															        <a href="" data-toggle="modal" data-target="#delbook<?php echo $id; ?>"><i class="fa-solid fa-trash-can"></i></a>
+															      </li>
+															    </ul>
+															</div>
+														</td>
 
-																			<!-- Modal Start -->
-																			<!-- Modal -->
-																			<div class="modal fade" id="delbook<?php echo $id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-																			  <div class="modal-dialog">
-																			    <div class="modal-content">
-																			      <div class="modal-header">
-																			        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this <?php echo $title; ?> Book </h5>
-																			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-																			          <span aria-hidden="true">&times;</span>
-																			        </button>
-																			      </div>
-																			      <div class="modal-body">
-																			        <div class="modal-btn">
-																				        	<ul>
-																				        		<li>
-																				        			<a href="books.php?do=Delete&delbook_id=<?php echo $id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
-																				        		</li>
-																				        		<li>
-																				        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
-																				        		</li>	        		
-																				        	</ul>
-																				        </div>
-																			      </div>
-																			    </div>
-																			  </div>
-																			</div>
-																			<!-- Modal End -->
-															    </tr>
-													  		<?php }
-													  		}
+																<!-- Modal Start -->
+																<!-- Modal -->
+																<div class="modal fade" id="delbook<?php echo $id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																  <div class="modal-dialog">
+																    <div class="modal-content">
+																      <div class="modal-header">
+																        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this <?php echo $title; ?> Book </h5>
+																        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																          <span aria-hidden="true">&times;</span>
+																        </button>
+																      </div>
+																      <div class="modal-body">
+																        <div class="modal-btn">
+																	        	<ul>
+																	        		<li>
+																	        			<a href="books.php?do=Delete&delbook_id=<?php echo $id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
+																	        		</li>
+																	        		<li>
+																	        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
+																	        		</li>	        		
+																	        	</ul>
+																	        </div>
+																      </div>
+																    </div>
+																  </div>
+																</div>
+																<!-- Modal End -->
+												    </tr>
+										  		<?php }
+										  		}
 
-													  		
-													  	?>
-													    
-													    
-													  </tbody>
-													</table>
+										  		
+										  	?>
+										    
+										    
+										  </tbody>
+										</table>
 					              	</div>
 					              	
 					              	<!-- Table End -->
@@ -194,13 +194,13 @@
 							else if ( $do == "Add" ) { ?>
 								<!-- Card Stat -->
 								<div class="card">
-		              <div class="card-header">
-		                <h3 class="card-title">Register a new Book</h3>
-		                <div class="card-tools">
-		                  	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-		                </div>
-		              </div>
-		              <div class="card-body">
+					              <div class="card-header">
+					                <h3 class="card-title">Register a new Book</h3>
+					                <div class="card-tools">
+					                  	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+					                </div>
+					              </div>
+					              <div class="card-body">
 										<form action="books.php?do=Store" method="POST" enctype="multipart/form-data">
 											<div class="row">
 												<div class="col-lg-6">
@@ -286,8 +286,8 @@
 												</div>
 											</div>
 										</form>
-		              </div>
-		            </div>
+					              </div>
+					            </div>
 								<!-- Card End -->
 							<?php }
 							// Create Page End
@@ -365,116 +365,116 @@
 						  			?>
 						  			<!-- Card Stat -->
 								<div class="card">
-		              <div class="card-header">
-		                <h3 class="card-title">Update <?php echo $title; ?> Book Information</h3>
-		                <div class="card-tools">
-		                  	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-		                </div>
-		              </div>
-		              <div class="card-body">
-										<form action="books.php?do=Update" method="POST" enctype="multipart/form-data">
-											<div class="row">
-												<div class="col-lg-6">
-													<div class="form-group">
-								        		<label>Title</label>					                	
-								        		<input type="text" name="title" class="form-control" placeholder="Title of the book..." required autocomplete="off" value="<?php echo $title; ?>">
-								        	</div>
+					              <div class="card-header">
+					                <h3 class="card-title">Update <?php echo $title; ?> Book Information</h3>
+					                <div class="card-tools">
+					                  	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+					                </div>
+					              </div>
+					              <div class="card-body">
+									<form action="books.php?do=Update" method="POST" enctype="multipart/form-data">
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="form-group">
+							        		<label>Title</label>					                	
+							        		<input type="text" name="title" class="form-control" placeholder="Title of the book..." required autocomplete="off" value="<?php echo $title; ?>">
+							        	</div>
 
-								        	<div class="form-group">
-								        		<label>Subtitle</label>					                	
-								        		<input type="text" name="subtitle" class="form-control" placeholder="Subtitles..." required autocomplete="off" value="<?php echo $sub_title; ?>">
-								        	</div>
+							        	<div class="form-group">
+							        		<label>Subtitle</label>					                	
+							        		<input type="text" name="subtitle" class="form-control" placeholder="Subtitles..." required autocomplete="off" value="<?php echo $sub_title; ?>">
+							        	</div>
 
-								        	<div class="form-group">
-								        		<label>Author Name</label>					                	
-								        		<input type="text" name="author" class="form-control" placeholder="Name of the author..." required autocomplete="off" value="<?php echo $author_name; ?>"> 
-								        	</div>
+							        	<div class="form-group">
+							        		<label>Author Name</label>					                	
+							        		<input type="text" name="author" class="form-control" placeholder="Name of the author..." required autocomplete="off" value="<?php echo $author_name; ?>"> 
+							        	</div>
 
-								        	<div class="form-group">
-								        		<label>Qunatity</label>					                	
-								        		<input type="text" name="quantity" class="form-control" placeholder="Qunatity..." required autocomplete="off" value="<?php echo $quantity; ?>">
-								        	</div>
+							        	<div class="form-group">
+							        		<label>Qunatity</label>					                	
+							        		<input type="text" name="quantity" class="form-control" placeholder="Qunatity..." required autocomplete="off" value="<?php echo $quantity; ?>">
+							        	</div>
 
-								        	<!-- Category name problem -->
-								        	<div class="form-group">
-								        		<label>Category Name </label>					                	
-								        		<select name="cat_id" class="form-control">
-								        			<option value="">Please select the Category or SubCategory name</option>
-															<?php  
+							        	<!-- Category name problem -->
+							        	<div class="form-group">
+							        		<label>Category Name </label>					                	
+							        		<select name="cat_id" class="form-control">
+							        			<option value="">Please select the Category or SubCategory name</option>
+														<?php  
 
-																// Parent category part start
-																$sql = "SELECT * FROM category WHERE is_parent = 0 ORDER BY cat_name ASC";
-																$parentCat = mysqli_query($db, $sql);
+															// Parent category part start
+															$sql = "SELECT * FROM category WHERE is_parent = 0 ORDER BY cat_name ASC";
+															$parentCat = mysqli_query($db, $sql);
 
-																while ( $row = mysqli_fetch_assoc($parentCat) ) {
-																	$p_cat_id 			= $row['cat_id'];
-																	$p_cat_name 		= $row['cat_name'];
-																	?>
-																	<option value="<?php echo $p_cat_id; ?>"
-																		<?php if( $p_cat_id == $cat_id ){ echo 'selected'; } ?>
-																		><?php echo $p_cat_name; ?></option>
-																	<!-- Parent category part End -->
+															while ( $row = mysqli_fetch_assoc($parentCat) ) {
+																$p_cat_id 			= $row['cat_id'];
+																$p_cat_name 		= $row['cat_name'];
+																?>
+																<option value="<?php echo $p_cat_id; ?>"
+																	<?php if( $p_cat_id == $cat_id ){ echo 'selected'; } ?>
+																	><?php echo $p_cat_name; ?></option>
+																<!-- Parent category part End -->
 
-																	<?php  
-																			// Child category part start
-																			$query = "SELECT * FROM category WHERE is_parent = '$p_cat_id' ORDER BY cat_name ASC";
-																			$childCat = mysqli_query($db, $query);
+																<?php  
+																		// Child category part start
+																		$query = "SELECT * FROM category WHERE is_parent = '$p_cat_id' ORDER BY cat_name ASC";
+																		$childCat = mysqli_query($db, $query);
 
-																			while ($row = mysqli_fetch_assoc($childCat)) {
-																				$c_cat_id 			= $row['cat_id'];
-																				$c_cat_name 		= $row['cat_name'];
-																				?>
-																				<option value="<?php echo $c_cat_id; ?>"
-																					<?php if( $c_cat_id == $cat_id ){ echo 'selected'; } ?>
-																					>- - <?php echo $c_cat_name; ?></option>
-																			<?php }
-																			// Child category part end																	
-																 }
+																		while ($row = mysqli_fetch_assoc($childCat)) {
+																			$c_cat_id 			= $row['cat_id'];
+																			$c_cat_name 		= $row['cat_name'];
+																			?>
+																			<option value="<?php echo $c_cat_id; ?>"
+																				<?php if( $c_cat_id == $cat_id ){ echo 'selected'; } ?>
+																				>- - <?php echo $c_cat_name; ?></option>
+																		<?php }
+																		// Child category part end																	
+															 }
 
-															?>
-															
-								        		</select>
-								        	</div>        
+														?>
+														
+							        		</select>
+							        	</div>        
 
-								        	<div class="form-group">
-								        		<label>Status</label>
-								        		<select name="status" class="form-control">
-								        			<option value="1">Please Select User Role</option>
-								        			<option value="1" <?php if ( $status == 1 ){ echo 'selected'; } ?>>Active</option>
-								        			<option value="2" <?php if ( $status == 2 ){ echo 'selected'; } ?>>InActive</option>
-								        		</select>
-								        	</div>    	
-												</div>
-
-												<div class="col-lg-6">
-													<div class="form-group">
-								        		<label>Description</label>		
-								        		<textarea id="description" name="description" class="form-control"><?php echo $description; ?></textarea>	
-								        	</div>								        	
-
-								        	<div class="form-group">
-								        		<label>Thumbnail Picture</label>
-								        		<br>
-								        		<?php
-										      		if (!empty($image)) { ?>
-										      			<img src="dist/img/books/<?php echo $image; ?>" alt="" width="60">
-										      		<?php }
-										      		else { ?>
-										      			<p>No Picture Uploaded!</p>
-										      		<?php }
-										      	?>	
-								        		<input type="file" name="image" class="form-control-file pt-2">
-								        	</div>
-
-								        	<div class="form-group">
-								        		<input type="hidden" name="id" value="<?php echo $id; ?>">
-								        		<input type="submit" name="updateBook" class="btn btn-success btn-block" value="Update Book info">
-								        	</div>
-												</div>
+							        	<div class="form-group">
+							        		<label>Status</label>
+							        		<select name="status" class="form-control">
+							        			<option value="1">Please Select User Role</option>
+							        			<option value="1" <?php if ( $status == 1 ){ echo 'selected'; } ?>>Active</option>
+							        			<option value="2" <?php if ( $status == 2 ){ echo 'selected'; } ?>>InActive</option>
+							        		</select>
+							        	</div>    	
 											</div>
-										</form>
-		              </div>
-		            </div>
+
+											<div class="col-lg-6">
+												<div class="form-group">
+							        		<label>Description</label>		
+							        		<textarea id="description" name="description" class="form-control"><?php echo $description; ?></textarea>	
+							        	</div>								        	
+
+							        	<div class="form-group">
+							        		<label>Thumbnail Picture</label>
+							        		<br>
+							        		<?php
+									      		if (!empty($image)) { ?>
+									      			<img src="dist/img/books/<?php echo $image; ?>" alt="" width="60">
+									      		<?php }
+									      		else { ?>
+									      			<p>No Picture Uploaded!</p>
+									      		<?php }
+									      	?>	
+							        		<input type="file" name="image" class="form-control-file pt-2">
+							        	</div>
+
+							        	<div class="form-group">
+							        		<input type="hidden" name="id" value="<?php echo $id; ?>">
+							        		<input type="submit" name="updateBook" class="btn btn-success btn-block" value="Update Book info">
+							        	</div>
+											</div>
+										</div>
+									</form>
+					              </div>
+					            </div>
 								<!-- Card End -->
 									<?php }
 								}

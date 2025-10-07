@@ -4,11 +4,11 @@
       <section class="blog-details">
         <div class="container d-flex justify-content-between align-items-center">
           <div>
-            <h1 class="text-light" style=" font-family: 'Righteous', cursive;
-          font-size: 60px;">Our Blogs</h1>
+            <h2 class="text-light" style=" font-family: 'Righteous', cursive;
+          font-size: 40px;">Our Blogs</h2>
           </div>
           <div>
-            <img src="assets/images/shape-dots.svg" alt="" class="img-fluid" style="opacity: .5;">
+            <img src="assets/images/shape-dots.svg" alt="" class="img-fluid" style="opacity: .5; width: 50%;">
           </div>
         </div>
       </section>

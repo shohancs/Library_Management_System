@@ -10,12 +10,6 @@
     header("Location: logout.php");
   }
 
-
- /* // Work is same line 6 - 10
-  if (empty($_SESSION['user_id']) || empty($_SESSION['email']) || $_SESSION['role'] != 1) {
-    header("Location: index.php");
-  }
-  // New */
 ?>
 
 <!DOCTYPE html>

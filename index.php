@@ -57,7 +57,7 @@
       <!-- ::::: Carosel Slider Section End ::::: -->
 
       <!-- ::::: All Books Section Start ::::: -->
-      <section class="py-5">
+      <section class="py-5 book-section">
         <div class="container">
           <div class="row">
             <!-- Book Content Start -->
@@ -93,10 +93,10 @@
                             <div class="book-thumbnail">
                               <?php
                                   if (!empty($image)) { ?>
-                                    <img src="admin/dist/img/books/<?php echo $image; ?>" alt="" style="width: 100%; height: 300px;">
+                                    <img src="admin/dist/img/books/<?php echo $image; ?>" alt="" style="width: 100%; height: 300px;" loading="lazy">
                                   <?php }
                                   else { ?>
-                                    <img src="admin/dist/img/books/blank_book.jpg" alt="" style="width: 100%; height: 300px;">
+                                    <img src="admin/dist/img/books/blank_book.jpg" alt="" style="width: 100%; height: 300px;" loading="lazy">
                                   <?php }
                                 ?>  
 
@@ -145,7 +145,7 @@
       <!-- ::::: All Books Section End ::::: -->
 
       <!-- ::::: Sticker Section Start ::::: -->
-      <section style="
+      <section class="sticker-sec py-3" style="
     background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8) ),url(assets/images/60.png); 
     background-repeat: no-repeat;
     background-size: cover;
@@ -157,7 +157,7 @@
             <div class="col-lg-12">
               <div class="row" style="align-items: center;">
                 <div class="col-lg-6">
-                  <img src="assets/images/sticker.png" alt="" style="width: 100%; ">
+                  <img src="assets/images/sticker.png" alt=""  loading="lazy">
                 </div>
                 <div class="col-lg-6 text-center pt-5">
                   <div>
