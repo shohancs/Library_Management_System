@@ -46,188 +46,190 @@
 		              <div class="card-body">
 					                
 					        <!-- Table Start -->
-					        <table  class="table table-dark table-striped table-hover table-bordered">
-									  <thead>
-									    <tr>
-									      <th scope="col">#Sl.</th>
-									      <th scope="col">Category Name</th>
-									      <th scope="col">Description</th>
-									      <th scope="col">Category / SubCategory</th>
-									      <th scope="col">Status</th>								      
-									      <th scope="col">Action</th>
-									    </tr>
-									  </thead>
+					        <div class="table-responsive">
+						        <table  class="table table-dark table-striped table-hover table-bordered">
+										  <thead>
+										    <tr>
+										      <th scope="col">#Sl.</th>
+										      <th scope="col">Category Name</th>
+										      <th scope="col">Description</th>
+										      <th scope="col">Category / SubCategory</th>
+										      <th scope="col">Status</th>								      
+										      <th scope="col">Action</th>
+										    </tr>
+										  </thead>
 
-									  <tbody>
-									  	<?php  
-									  		$sql = "SELECT * FROM category WHERE is_parent = 0 ORDER BY cat_name ASC";
-									  		$allCat = mysqli_query($db, $sql);
-									  		$i = 0;
+										  <tbody>
+										  	<?php  
+										  		$sql = "SELECT * FROM category WHERE is_parent = 0 ORDER BY cat_name ASC";
+										  		$allCat = mysqli_query($db, $sql);
+										  		$i = 0;
 
-									  		while ( $row = mysqli_fetch_assoc($allCat) ) {
-									  			$cat_id 			= $row['cat_id'];
-									  			$cat_name 		= $row['cat_name'];
-									  			$cat_desc 		= $row['cat_desc'];
-									  			$is_parent 		= $row['is_parent'];
-									  			$status 			= $row['status'];
-									  			$i++;
-									  			?>
+										  		while ( $row = mysqli_fetch_assoc($allCat) ) {
+										  			$cat_id 			= $row['cat_id'];
+										  			$cat_name 		= $row['cat_name'];
+										  			$cat_desc 		= $row['cat_desc'];
+										  			$is_parent 		= $row['is_parent'];
+										  			$status 			= $row['status'];
+										  			$i++;
+										  			?>
 
-									  			<tr>
-											      <th scope="row"><?php echo $i; ?></th>
-											      <td><?php echo $cat_name; ?></td>
-											      <td><?php echo $cat_desc; ?></td>
-											      <td>
-											      	<?php 
-											      		if ( $is_parent == 0 ) { ?>
-											      			<span class="badge badge-success">Primary Category</span>
-											      		<?php }
-											      		else { ?>
-											      			<span class="badge badge-info">Sub Category</span>
-											      		<?php }
-											      	?>											      		
-											      </td>
-											      <td>
-											      	<?php 
-											      		if ( $status == 1 ) { ?>
-											      			<span class="badge badge-primary">Active</span>
-											      		<?php }
-											      		else { ?>
-											      			<span class="badge badge-danger">InActive</span>
-											      		<?php }
-											      	?>				
-											      </td>
-<td>
-	<div class="action-btn">
-    <ul>
-      <li>
-        <a href="category.php?do=Edit&cat_id=<?php echo $cat_id;?>"><i class="fa-regular fa-pen-to-square"></i></a>
-      </li>
-      <li>
-        <a href="" data-toggle="modal" data-target="#delParCat<?php echo $cat_id; ?>"><i class="fa-solid fa-trash-can"></i></a>
-      </li>
-    </ul>
-  </div>
-  <!-- Delete Parent Category Modal Start -->
-	<div class="modal fade" id="delParCat<?php echo $cat_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this Primary Category?</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        <div class="modal-btn">
-	        	<ul>
-	        		<li>
-	        			<a href="category.php?do=Delete&cat_id=<?php echo $cat_id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
-	        		</li>
-	        		<li>
-	        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
-	        		</li>	        		
-	        	</ul>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-  <!-- Delete Parent Category Modal End -->
-</td>
-											    </tr>
+										  			<tr>
+												      <th scope="row"><?php echo $i; ?></th>
+												      <td><?php echo $cat_name; ?></td>
+												      <td><?php echo $cat_desc; ?></td>
+												      <td>
+												      	<?php 
+												      		if ( $is_parent == 0 ) { ?>
+												      			<span class="badge badge-success">Primary Category</span>
+												      		<?php }
+												      		else { ?>
+												      			<span class="badge badge-info">Sub Category</span>
+												      		<?php }
+												      	?>											      		
+												      </td>
+												      <td>
+												      	<?php 
+												      		if ( $status == 1 ) { ?>
+												      			<span class="badge badge-primary">Active</span>
+												      		<?php }
+												      		else { ?>
+												      			<span class="badge badge-danger">InActive</span>
+												      		<?php }
+												      	?>				
+												      </td>
+															<td>
+																<div class="action-btn">
+															    <ul>
+															      <li>
+															        <a href="category.php?do=Edit&cat_id=<?php echo $cat_id;?>"><i class="fa-regular fa-pen-to-square"></i></a>
+															      </li>
+															      <li>
+															        <a href="" data-toggle="modal" data-target="#delParCat<?php echo $cat_id; ?>"><i class="fa-solid fa-trash-can"></i></a>
+															      </li>
+															    </ul>
+															  </div>
+															  <!-- Delete Parent Category Modal Start -->
+																<div class="modal fade" id="delParCat<?php echo $cat_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																  <div class="modal-dialog">
+																    <div class="modal-content">
+																      <div class="modal-header">
+																        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this Primary Category?</h5>
+																        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																          <span aria-hidden="true">&times;</span>
+																        </button>
+																      </div>
+																      <div class="modal-body">
+																        <div class="modal-btn">
+																        	<ul>
+																        		<li>
+																        			<a href="category.php?do=Delete&cat_id=<?php echo $cat_id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
+																        		</li>
+																        		<li>
+																        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
+																        		</li>	        		
+																        	</ul>
+																        </div>
+																      </div>
+																    </div>
+																  </div>
+																</div>
+															  <!-- Delete Parent Category Modal End -->
+															</td>
+												    </tr>
 
-											    <!-- Sub Category Check Start -->
-											    <?php  
-											    	$sql = "SELECT * FROM category WHERE is_parent = '$cat_id' ORDER BY cat_name ASC";
-									  				$allSubCat = mysqli_query($db, $sql);
+												    <!-- Sub Category Check Start -->
+												    <?php  
+												    	$sql = "SELECT * FROM category WHERE is_parent = '$cat_id' ORDER BY cat_name ASC";
+										  				$allSubCat = mysqli_query($db, $sql);
 
-									  				while ( $row = mysqli_fetch_assoc($allSubCat) ) {
-									  					$cat_id 			= $row['cat_id'];
-											  			$cat_name 		= $row['cat_name'];
-											  			$cat_desc 		= $row['cat_desc'];
-											  			$is_parent 		= $row['is_parent'];
-											  			$status 			= $row['status'];
-											  			$i++;
-											  			?>
-											  				<tr>
-											      <th scope="row"></th>
-											      <td>-- <?php echo $cat_name; ?></td>
-											      <td><?php echo $cat_desc; ?></td>
-											      <td>
-											      	<?php 
-											      		if ( $is_parent == 0 ) { ?>
-											      			<span class="badge badge-success">Primary Category</span>
-											      		<?php }
-											      		else { ?>
-											      			<span class="badge badge-info">Sub Category</span>
-											      		<?php }
-											      	?>											      		
-											      </td>
-											      <td>
-											      	<?php 
-											      		if ( $status == 1 ) { ?>
-											      			<span class="badge badge-primary">Active</span>
-											      		<?php }
-											      		else { ?>
-											      			<span class="badge badge-danger">InActive</span>
-											      		<?php }
-											      	?>				
-											      </td>
-<td>
-	<div class="action-btn">
-    <ul>
-      <li>
-        <a href="category.php?do=Edit&cat_id=<?php echo $cat_id;?>"><i class="fa-regular fa-pen-to-square"></i></a>
-      </li>
-      <li>
-        <a href="" data-toggle="modal" data-target="#delChildCat<?php echo $cat_id; ?>"><i class="fa-solid fa-trash-can"></i></a>
-      </li>
-    </ul>
-  </div>
-  <!-- Delete Child Category Modal Start -->
-	<div class="modal fade" id="delChildCat<?php echo $cat_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this Sub Category?</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        <div class="modal-btn">
-	        	<ul>
-	        		<li>
-	        			<a href="category.php?do=Delete&cat_id=<?php echo $cat_id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
-	        		</li>
-	        		<li>
-	        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
-	        		</li>	        		
-	        	</ul>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-  <!-- Delete Child Category Modal End -->
-</td>
-											    </tr>
-									  				<?php }
+										  				while ( $row = mysqli_fetch_assoc($allSubCat) ) {
+										  					$cat_id 			= $row['cat_id'];
+												  			$cat_name 		= $row['cat_name'];
+												  			$cat_desc 		= $row['cat_desc'];
+												  			$is_parent 		= $row['is_parent'];
+												  			$status 			= $row['status'];
+												  			$i++;
+												  			?>
+												  				<tr>
+															      <th scope="row"></th>
+															      <td>-- <?php echo $cat_name; ?></td>
+															      <td><?php echo $cat_desc; ?></td>
+															      <td>
+															      	<?php 
+															      		if ( $is_parent == 0 ) { ?>
+															      			<span class="badge badge-success">Primary Category</span>
+															      		<?php }
+															      		else { ?>
+															      			<span class="badge badge-info">Sub Category</span>
+															      		<?php }
+															      	?>											      		
+															      </td>
+															      <td>
+															      	<?php 
+															      		if ( $status == 1 ) { ?>
+															      			<span class="badge badge-primary">Active</span>
+															      		<?php }
+															      		else { ?>
+															      			<span class="badge badge-danger">InActive</span>
+															      		<?php }
+															      	?>				
+															      </td>
+																		<td>
+																			<div class="action-btn">
+																		    <ul>
+																		      <li>
+																		        <a href="category.php?do=Edit&cat_id=<?php echo $cat_id;?>"><i class="fa-regular fa-pen-to-square"></i></a>
+																		      </li>
+																		      <li>
+																		        <a href="" data-toggle="modal" data-target="#delChildCat<?php echo $cat_id; ?>"><i class="fa-solid fa-trash-can"></i></a>
+																		      </li>
+																		    </ul>
+																		  </div>
+																		  <!-- Delete Child Category Modal Start -->
+																			<div class="modal fade" id="delChildCat<?php echo $cat_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																			  <div class="modal-dialog">
+																			    <div class="modal-content">
+																			      <div class="modal-header">
+																			        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete this Sub Category?</h5>
+																			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																			          <span aria-hidden="true">&times;</span>
+																			        </button>
+																			      </div>
+																			      <div class="modal-body">
+																			        <div class="modal-btn">
+																			        	<ul>
+																			        		<li>
+																			        			<a href="category.php?do=Delete&cat_id=<?php echo $cat_id; ?>" class="btn btn-danger">Confirm <i class="fa-regular fa-trash-can"></i></a>
+																			        		</li>
+																			        		<li>
+																			        			<a href="" class="btn btn-success" data-dismiss="modal">Cancel <i class="fa-regular fa-circle-xmark"></i></a>
+																			        		</li>	        		
+																			        	</ul>
+																			        </div>
+																			      </div>
+																			    </div>
+																			  </div>
+																			</div>
+																		  <!-- Delete Child Category Modal End -->
+																		</td>
+												    		</tr>
+										  				<?php }
 
-											    ?>
-											    <!-- Sub Category Check End -->
+												    ?>
+												    <!-- Sub Category Check End -->
 
-									  		<?php }
-									  	?>
-									    
-									    
-									  </tbody>
-									</table>
-					              	<!-- Table End -->
+										  		<?php }
+										  	?>
+										    
+										    
+										  </tbody>
+										</table>
+									</div>
+	              	<!-- Table End -->
 
-					              </div>
-					            </div>
+	              </div>
+	            </div>
 								<!-- Card End -->
 
 							<?php }
@@ -239,60 +241,60 @@
 							// This is the Create new users Html Page
 							else if ( $do == "Add" ) { ?>
 								
-<!-- Card Stat -->
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">Add New Category</h3>
-    <div class="card-tools">
-      	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-    </div>
-  </div>
-  <div class="card-body">
-    <form action="category.php?do=Store" method="POST" enctype="multipart/form-data">
-    	<div class="form-group">
-    		<label>Category Name <sup style="font-size: 8px; color: #DD5353; top: -9px;"><small><i class="fa-solid fa-star"></i></small></sup></label> 				                	
-    		<input type="text" name="name" class="form-control" placeholder="Your full name..." required autocomplete="off">
-    	</div>
+							<!-- Card Stat -->
+							<div class="card">
+							  <div class="card-header">
+							    <h3 class="card-title">Add New Category</h3>
+							    <div class="card-tools">
+							      	<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+							    </div>
+							  </div>
+							  <div class="card-body">
+							    <form action="category.php?do=Store" method="POST" enctype="multipart/form-data">
+							    	<div class="form-group">
+							    		<label>Category Name <sup style="font-size: 8px; color: #DD5353; top: -9px;"><small><i class="fa-solid fa-star"></i></small></sup></label> 				                	
+							    		<input type="text" name="name" class="form-control" placeholder="Your full name..." required autocomplete="off">
+							    	</div>
 
-    	<div class="form-group">
-    		<label>Description (Optional)</label> 
-    		<textarea id="description" name="desc" class="form-control" placeholder="Type Here..." rows="5"></textarea>		
-    	</div>
+							    	<div class="form-group">
+							    		<label>Description (Optional)</label> 
+							    		<textarea id="description" name="desc" class="form-control" placeholder="Type Here..." rows="5"></textarea>		
+							    	</div>
 
-    	<div class="form-group">
-    		<label>Parent Category <sup style="font-size: 8px; color: #DD5353; top: -9px;"><small><i class="fa-solid fa-star"></i></small></sup></label>
-    		<select class="form-control" name="is_parent">
-    			<option value="0">Please select the Parent Category</option>
-    			<?php  
-  					$sql = "SELECT * FROM category WHERE is_parent = 0";
-  					$parentCat = mysqli_query($db, $sql);
+							    	<div class="form-group">
+							    		<label>Parent Category <sup style="font-size: 8px; color: #DD5353; top: -9px;"><small><i class="fa-solid fa-star"></i></small></sup></label>
+							    		<select class="form-control" name="is_parent">
+							    			<option value="0">Please select the Parent Category</option>
+							    			<?php  
+							  					$sql = "SELECT * FROM category WHERE is_parent = 0";
+							  					$parentCat = mysqli_query($db, $sql);
 
-  					while ($row = mysqli_fetch_assoc($parentCat)) {
-  						$cat_id 	= $row['cat_id'];
-  						$cat_name = $row['cat_name'];
-  						?>
-  						<option value="<?php echo $cat_id; ?>"><?php echo $cat_name; ?></option>
-  					<?php }
-  				?> 
-    		</select>
-    	</div>
+							  					while ($row = mysqli_fetch_assoc($parentCat)) {
+							  						$cat_id 	= $row['cat_id'];
+							  						$cat_name = $row['cat_name'];
+							  						?>
+							  						<option value="<?php echo $cat_id; ?>"><?php echo $cat_name; ?></option>
+							  					<?php }
+							  				?> 
+							    		</select>
+							    	</div>
 
-    	<div class="form-group">
-    		<label>Category Status <sup style="font-size: 8px; color: #DD5353; top: -9px;"><small><i class="fa-solid fa-star"></i></small></sup></label> 				                	
-    		<select class="form-control" name="status">
-    			<option value="1">Please select the Status</option>
-    			<option value="1">Active</option>
-    			<option value="2">InActive</option>
-    		</select>
-    	</div>
+							    	<div class="form-group">
+							    		<label>Category Status <sup style="font-size: 8px; color: #DD5353; top: -9px;"><small><i class="fa-solid fa-star"></i></small></sup></label> 				                	
+							    		<select class="form-control" name="status">
+							    			<option value="1">Please select the Status</option>
+							    			<option value="1">Active</option>
+							    			<option value="2">InActive</option>
+							    		</select>
+							    	</div>
 
-    	<div class="form-group">
-    		<input type="submit" name="addCat" class="btn btn-success" value="Add New Category">
-    	</div>
-    </form>
-  </div>
-</div>
-<!-- Card End -->
+							    	<div class="form-group">
+							    		<input type="submit" name="addCat" class="btn btn-success" value="Add New Category">
+							    	</div>
+							    </form>
+							  </div>
+							</div>
+							<!-- Card End -->
 
 							<?php }
 							// Create Page End
