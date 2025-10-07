@@ -38,8 +38,9 @@
 				                </div>
 				              </div>
 				              <div class="card-body">
-			              	
-									<table id="dataSearch" class="table table-dark table-striped table-hover table-bordered">
+
+				              	<div class="table-responsive">
+				              		<table id="dataSearch" class="table table-dark table-striped table-hover table-bordered">
 									  <thead>
 									    <tr>
 									      <th scope="col">#Sl.</th>
@@ -146,6 +147,9 @@
 									    
 									  </tbody>
 									</table>
+				              	</div>
+			              	
+									
 								<?php }
 
 								else if ($do == 'Edit') {
