@@ -38,7 +38,8 @@
                       } ?>
 
                       <div class="user-info py-5">
-                        <table class="table table-striped table-hover table-bordered">
+                        <div class="table-responsive">
+                          <table class="table table-striped table-hover table-bordered">
                           <thead class="table-info">
                             <tr>
                               <th scope="col">Full Name</th>
@@ -56,6 +57,8 @@
                             </tr>
                           </tbody>
                         </table>
+                        </div>
+                        
                       </div>
 
                         <form action="" method="POST">

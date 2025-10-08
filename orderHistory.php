@@ -15,7 +15,8 @@
           ?>
 
           <!-- Table Start -->
-          <table id="dataSearch" class="table table-striped table-hover table-bordered">
+          <div class="table-responsive">
+            <table id="dataSearch" class="table table-striped table-hover table-bordered">
             <thead class="table-dark">
               <tr>
                 <th scope="col">#Sl.</th>
@@ -116,7 +117,9 @@
               ?>
                       
             </tbody>
-          </table>        
+          </table>
+          </div>
+                  
           <!-- Table End -->
         </div>
 
