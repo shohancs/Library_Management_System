@@ -93,10 +93,10 @@
                             <div class="book-thumbnail">
                               <?php
                                   if (!empty($image)) { ?>
-                                    <img src="admin/dist/img/books/<?php echo $image; ?>" alt="" style="width: 100%; height: 300px;" loading="lazy">
+                                    <img src="admin/dist/img/books/<?php echo $image; ?>" alt="" style="width: 100%; height: 300px;">
                                   <?php }
                                   else { ?>
-                                    <img src="admin/dist/img/books/blank_book.jpg" alt="" style="width: 100%; height: 300px;" loading="lazy">
+                                    <img src="admin/dist/img/books/blank_book.jpg" alt="" style="width: 100%; height: 300px;">
                                   <?php }
                                 ?>  
 
@@ -157,7 +157,7 @@
             <div class="col-lg-12">
               <div class="row" style="align-items: center;">
                 <div class="col-lg-6">
-                  <img src="assets/images/sticker.png" alt=""  loading="lazy">
+                  <img src="assets/images/sticker.png" alt="" >
                 </div>
                 <div class="col-lg-6 text-center pt-5">
                   <div>
