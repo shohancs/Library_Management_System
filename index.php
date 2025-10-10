@@ -107,7 +107,7 @@
                             </div>
 
                             <div class="book-info">
-                              <h4><?php echo $title; ?></h4>
+                              <h4><a href="details.php?book=<?php echo $id; ?>"><?php echo $title; ?></a></h4>
                               <p class="subtitle"><?php echo $sub_title; ?></p>
                               <p class="quantity">Quantity: <span><?php echo $quantity; ?> Pcs</span></p>
                               <p><?php echo substr($description, 0, 50); ?>... <a href="details.php?book=<?php echo $id; ?>">read more</a></p>

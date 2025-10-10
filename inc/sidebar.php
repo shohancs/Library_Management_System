@@ -20,7 +20,7 @@
         <h3>Popular Book</h3>
 
         <?php  
-            $sql = "SELECT * FROM book WHERE status = 1 ORDER BY title ASC";
+            $sql = "SELECT * FROM book WHERE status = 1 ORDER BY title DESC LIMIT 10";
             $allBooks = mysqli_query($db, $sql);
 
             $totalBooks = mysqli_num_rows($allBooks);
@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="">
-                              <h4><?php echo $title; ?></h4>
+                              <h4><a href="details.php?book=<?php echo $id; ?>" class="text-dark"><?php echo $title; ?></a></h4>
                               <p class="quantity"><?php echo $quantity; ?> Pcs</p>
                             </div> 
                         </div>
