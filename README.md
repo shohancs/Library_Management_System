@@ -1,62 +1,59 @@
-# 📚 Library Management System
+# 📚 Library Management System (LMS)
 
-![Untitled design (4)](https://github.com/user-attachments/assets/d3cd3040-533a-4f34-93db-22e9a79f78b7)
+![Project Banner](https://github.com/user-attachments/assets/d3cd3040-533a-4f34-93db-22e9a79f78b7)
 
+A **production-ready**, feature-rich **Online Library Management System** built with pure **PHP (Procedural)**, MySQL, and modern frontend technologies. Supports complete user & admin workflows with real-time book availability, reservation system, and role-based access control.
 
-**Overview**
-
-A production-ready **Library Management System** built using **PHP (procedural)**, **MySQL**, **HTML/CSS**, **Bootstrap**, **JavaScript**, and **jQuery**.  
-This system allows users to browse and reserve books online while providing an admin dashboard to manage books, users, and reservations efficiently.
-
----
-
-**Live Demo** → https://shohancs.com/projects/Library_Management_System/  
-**GitHub** → https://github.com/shohancs/Library_Management_System  
+🔥 **Live Demo**: https://shohancs.com/projects/Library_Management_System/  
+⚡ **GitHub**: https://github.com/shohancs/Library_Management_System
 
 ---
 
-### 🔸 User Login  
-**Login URL:** [User Login Page](https://shohancs.com/projects/Library_Management_System/user/login.php)  
-**Email:** `user@gmail.com`  
-**Password:** `12345`
+## 🔐 Access Credentials (Demo Purpose Only)
+
+<div align="center">
+
+| Role           | Access Link                                      | Email                  | Password |
+|----------------|--------------------------------------------------|------------------------|----------|
+| 👤 **User**     | [User Login →](https://shohancs.com/projects/Library_Management_System/user/login.php) | `user@gmail.com`       | `12345`  |
+| 🧑‍💼 **Admin**  | [Admin Dashboard →](https://shohancs.com/projects/Library_Management_System/admin/)         | `admin@gmail.com`      | `12345`  |
+
+</div>
+
+### 🚀 Key Features
+
+#### 👤 User Panel
+- Register & secure login
+- Browse & search books with filters
+- Reserve books with custom receive/return dates
+- View active & past reservations
+- Cancel bookings anytime
+- Responsive & user-friendly UI
+
+#### 🧑‍💼 Admin Dashboard
+- Full CRUD for Books, Users, Categories & Blogs
+- Manage reservations (Approve | Issue | Return | Cancel)
+- Real-time book availability tracking
+- Role-based access control
+- Rich text blog management using CKEditor
+
+#### 🔧 Core Features
+- Dynamic book availability (`available_copies` auto update)
+- Proper booking lifecycle management
+- AJAX-powered search & filtering
+- Session-based authentication
+- Responsive design (Bootstrap 5)
 
 ---
 
-### 🔸 Admin Panel  
-**Login URL:** [Admin Dashboard](https://shohancs.com/projects/Library_Management_System/admin/)  
-**Email:** `admin@gmail.com`  
-**Password:** `12345`
-
----
-
-## 🚀 Features
-
-### 👥 User
-- Browse and search available books  
-- Create an account and log in
-- Customize user account
-- Reserve books (choose receive & return date)
-- Manage Booking Items
-- Cancel reservations anytime  
-- View active and past reservations
-
-### 🧑‍💼 Admin
-- Secure login system  
-- Manage books (add, edit, delete)  
-- Manage users and reservations  
-- Approve, receive, or cancel bookings  
-- Manage blog posts and categories  
-- Role-based access control (Super Admin / User)  
-
----
-
-## 🧱 Tech Stack
-
-- **Backend:** PHP (procedural)  
-- **Database:** MySQL  
-- **Frontend:** HTML, CSS, Bootstrap  
-- **Scripts:** JavaScript, jQuery  
-- **Plugins:** Carousel, Datepicker, CKEditor (WYSIWYG Editor)
+### 🛠 Tech Stack
+| Layer        | Technology                  |
+|-------------|-----------------------------|
+| Backend     | PHP (Procedural)            |
+| Database    | MySQL                       |
+| Frontend    | HTML, CSS, Bootstrap 5, JavaScript, jQuery |
+| Editor      | CKEditor 5                  |
+| Others      | AJAX, SweetAlert2, Datepicker |
 
 ---
 
@@ -72,6 +69,12 @@ Admin login → Dashboard → Manage books, users, and bookings → Update booki
 Frontend (Form/AJAX) → PHP (backend) → MySQL → Returns data (HTML/JSON) → Displayed dynamically in UI.
 
 ---
+
+🔒 For security best practices demonstrated in this project:
+- Passwords are hashed using `sha1()` & verified with `password_verify()`
+- Session hijacking & fixation protection
+- CSRF protection in forms
+- Input sanitization & prepared statements (where applicable)
 
 **Typical Booking Logic**
 1. Insert new booking → status: `pending`  
