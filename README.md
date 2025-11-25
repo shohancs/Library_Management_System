@@ -1,5 +1,8 @@
 # 📚 Library Management System
 
+![Untitled design (4)](https://github.com/user-attachments/assets/d3cd3040-533a-4f34-93db-22e9a79f78b7)
+
+
 **Overview**
 
 A production-ready **Library Management System** built using **PHP (procedural)**, **MySQL**, **HTML/CSS**, **Bootstrap**, **JavaScript**, and **jQuery**.  
