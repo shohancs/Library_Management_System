@@ -10,10 +10,8 @@ This system allows users to browse and reserve books online while providing an a
 
 ---
 
-## 🌐 Live Demo
-
-### 🔸 Frontend  
-**Website:** [Library Management System Live](https://shohancs.com/projects/Library_Management_System/)
+**Live Demo** → https://shohancs.com/projects/Library_Management_System/  
+**GitHub** → https://github.com/shohancs/Library_Management_System  
 
 ---
 
