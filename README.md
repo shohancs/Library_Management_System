@@ -53,7 +53,7 @@ A **production-ready**, feature-rich **Online Library Management System** built 
 | Database    | MySQL                       |
 | Frontend    | HTML, CSS, Bootstrap 5, JavaScript, jQuery |
 | Editor      | CKEditor 5                  |
-| Others      | AJAX, SweetAlert2, Datepicker |
+| Others      | AJAX, Datepicker |
 
 ---
 
