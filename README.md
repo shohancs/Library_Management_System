@@ -138,14 +138,16 @@ Library_Management_System/
 ---
 
 ## 🧑‍💻 Author
+**Shohanur Rahman Shohan**
 
-**Shohanur Rahman Shohan**  
-📧 [shohancs.dev@gmail.com](mailto:shohancs.dev@gmail.com)  
-🌐 [https://shohancs.com](https://shohancs.com)
+**Contact** 
+Email → shohancs.dev@gmail.com <br>
+Website → (https://shohancs.com/) <br>
+LinkedIn → [https://linkedin.com/in/shohancs](https://www.linkedin.com/in/shohancs/)
+
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](https://opensource.org/licenses/MIT)      
 
 ---
-
-## 📜 License
-
-**MIT License**  
-Free to use for educational purposes.
