@@ -154,4 +154,3 @@ Available for Remote, Freelance & Full-time roles
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](https://opensource.org/licenses/MIT)      
 
----
